@@ -1,6 +1,13 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"], // choose weights you use
+  variable: "--font-urbanist", // optional for custom property
+});
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,7 +30,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className={urbanist.className}>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
