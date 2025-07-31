@@ -2,6 +2,7 @@
 import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
 import StarsIcon from "./assets/icons/StarsIcon";
 import XIcon from "./assets/icons/XIcon";
+import DropDown from "./DropDown";
 import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
 import MeidumButtons from "./MediumButtons";
@@ -30,6 +31,11 @@ export default function HomePage() {
       <Inputs variant="InputFields" status="default" />
       <Inputs variant="InputText" status="default" label="Label" /> */}
 
+
+
+
+{/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
+ <DropDown variant="DropDownSmall" status="default"></DropDown> */}
       <div className=""></div>
     </div>
   );

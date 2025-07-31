@@ -72,20 +72,19 @@ const Inputs: React.FC<InputsProps> = ({
               setInputValue(val);
               handleChange(0, val);
             }}
-            className={`${getBaseStyle("w-full  px-4 pt-5 pb-2")} peer`}
+            className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
             placeholder=" "
           />
           <label
-            className={`absolute left-4 top-[18px] text-sm transition-all duration-200 ease-in-out 
-              ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
-              peer-placeholder-shown:top-[18px] peer-placeholder-shown:text-base 
-              peer-focus:top-2 peer-focus:text-sm peer-focus:text-black
-              ${inputValue ? "top-2 text-[16px] text-black" : ""}
-              ${status === "error" ? "text-[#F04438]" : ""}
-            `}
+            className={`absolute left-4 top-2 text-sm 
+               ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
+               ${status === "error" ? "text-[#F04438]" : ""}
+             `}
           >
             {label}
           </label>
+
+          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2"></div>
 
           {status === "error" && (
             <p className="text-[#F04438] text-sm mt-1">{errorText}</p>
@@ -139,7 +138,7 @@ const Inputs: React.FC<InputsProps> = ({
                     onChange={(e) =>
                       handleInputDataChange(index, e.target.value)
                     }
-                    className={`${getBaseStyle("w-full pt-5 pb-2 text-center px-2")} peer`}
+                    className={`${getBaseStyle("w-full pt-5 pb-2 text-center px-2 pr-8")} peer`}
                     placeholder=" "
                   />
                   <label
