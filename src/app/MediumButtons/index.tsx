@@ -29,14 +29,14 @@ const variantStyles: Record<Variant, string> = {
     "w-[200px] h-[50px] bg-[#FFFFFF03] border-1 border-[#0000001A] text-[16px] rounded-[12px] hover:bg-[#FCFDFE]  active:bg-[#3C5A4B] active:text-[#FFFFFF] disable:bg-[#FFFFFF03]",
   PrimaryPdf:
     "w-[150px] h-[50px] bg-[#000000] text-[#FFFFFF] rounded-[12px] text-[16px] hover: bg-[#000000] active:bg-[#222222] disable:bg-[#B3B3B3] ",
-  Secondary: 
-  "w-[40px] h-[40px] bg-[#0000000D] rounded-[12px] hover:bg-[#F2F2F2] active:bg-[#FFFFFF] disable:bg-[#0000000D] "   ,
+  Secondary:
+    "w-[40px] h-[40px] bg-[#0000000D] rounded-[12px] hover:bg-[#F2F2F2] active:bg-[#FFFFFF] disable:bg-[#0000000D] ",
 
   TertiarySelect:
     "w-[160px] h-[40px] bg-[#FFFFFF03] border-1 border-[#0000001A] text-[16px]  rounded-[12px] hover:bg-[#FCFDFE] active:bg-[#3C5A4B] active:text-[#FFFFFF] disable:bg-[#FFFFFF03]",
 
-  TertiaryChose: 
-  "w-[40px] h-[40px] bg-[#FFFFFF03] rounded-[10px] border-1 border-[#0000001A] hover:bg-[#FCFDFE] active:bg-[#F8F8F8] disable:bg-[#E0E0E0] ",
+  TertiaryChose:
+    "w-[40px] h-[40px] bg-[#FFFFFF03] rounded-[10px] border-1 border-[#0000001A] hover:bg-[#FCFDFE] active:bg-[#F8F8F8] disable:bg-[#E0E0E0] ",
 };
 
 const MeidumButtons: React.FC<MeidumButtonsProps> = ({

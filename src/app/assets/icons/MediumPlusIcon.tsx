@@ -1,11 +1,11 @@
 const MediumPlusIcon = ({
   width = 18,
   height = 18,
-className = "",
+  className = "",
 }: {
   width?: number | string;
   height?: number | string;
-className?:string
+  className?: string;
 }) => {
   return (
     <svg
@@ -21,8 +21,6 @@ className?:string
         strokeLinecap="round"
         strokeLinejoin="round"
         stroke="currentColor"
-
-
       />
     </svg>
   );

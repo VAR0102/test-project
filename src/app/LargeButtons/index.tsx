@@ -15,7 +15,7 @@ interface LargeButtonProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
-  type?: "button" ;
+  type?: "button";
 }
 
 const variantStyles: Record<Variant, string> = {
