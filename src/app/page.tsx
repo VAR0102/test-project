@@ -6,6 +6,7 @@ import DropDown from "./DropDown";
 import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
 import MeidumButtons from "./MediumButtons";
+import Navigate from "./Navigate";
 import SearchInput from "./Search";
 
 export default function HomePage() {
@@ -40,7 +41,8 @@ export default function HomePage() {
 
  {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
 
- 
+
+<Navigate variant="NavigationGroup"> </Navigate>
       <div className=""></div>
     </div>
   );
