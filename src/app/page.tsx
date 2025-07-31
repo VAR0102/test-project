@@ -6,6 +6,7 @@ import DropDown from "./DropDown";
 import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
 import MeidumButtons from "./MediumButtons";
+import SearchInput from "./Search";
 
 export default function HomePage() {
   return (
@@ -36,6 +37,10 @@ export default function HomePage() {
 
 {/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
  <DropDown variant="DropDownSmall" status="default"></DropDown> */}
+
+ {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
+
+ 
       <div className=""></div>
     </div>
   );
