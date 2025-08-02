@@ -2,31 +2,24 @@ import { useState } from "react";
 import ProfilIcon from "../assets/icons/ProfilIcon";
 import SelectionIcon from "../assets/icons/SelectionIcon";
 
-type Variant = 
-| "DropDownLarge"
-| "DropDownSmall";
+type Variant = "DropDownLarge" | "DropDownSmall";
 
-type Status =
-  | "default" 
-  | "error"
-  | "disabled";
+type Status = "default" | "error" | "disabled";
 
 interface DropDownProps {
-    variant:Variant
-    status?: Status
-      label?: string;
-      value?:string[]
-      errorText?:string
-      onChange?:(index:number, value:string ) => void
-
+  variant: Variant;
+  status?: Status;
+  label?: string;
+  value?: string[];
+  errorText?: string;
+  onChange?: (index: number, value: string) => void;
 }
 const statusStyle: Record<Status, string> = {
   default: "border border-[#0000001A]",
   error: "border border-[#F14922] text-black",
-  disabled: "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
+  disabled:
+    "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
 };
-
-
 
 const DropDown: React.FC<DropDownProps> = ({
   variant,
@@ -41,19 +34,15 @@ const DropDown: React.FC<DropDownProps> = ({
   const isDisabled = status === "disabled";
 
   const [inputValue, setInputValue] = useState("");
-  
 
   const handleChange = (index: number, value: string) => {
     if (onChange) onChange(index, value);
   };
 
- 
-
   switch (variant) {
     case "DropDownLarge":
-        
       return (
-      <div className="relative w-[600px] ">
+        <div className="relative w-[600px] ">
           <input
             type="text"
             disabled={isDisabled}
@@ -66,22 +55,19 @@ const DropDown: React.FC<DropDownProps> = ({
             className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
             placeholder=" "
           />
-                     <label
-             className={`absolute left-4 top-2 text-sm 
+          <label
+            className={`absolute left-4 top-2 text-sm 
                ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
-           >
+          >
             {label}
-
           </label>
 
-
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-      
             <div className="cursor-pointer">
-                <ProfilIcon/>
-            <SelectionIcon />
+              <ProfilIcon />
+              <SelectionIcon />
             </div>
           </div>
 
@@ -90,9 +76,9 @@ const DropDown: React.FC<DropDownProps> = ({
           )}
         </div>
       );
-      case "DropDownSmall":
-      return(
-  <div className="relative w-[300px] ">
+    case "DropDownSmall":
+      return (
+        <div className="relative w-[300px] ">
           <input
             type="text"
             disabled={isDisabled}
@@ -105,21 +91,18 @@ const DropDown: React.FC<DropDownProps> = ({
             className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
             placeholder=" "
           />
-                     <label
-             className={`absolute left-4 top-2 text-sm 
+          <label
+            className={`absolute left-4 top-2 text-sm 
                ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
-           >
+          >
             {label}
-
           </label>
 
-
           <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-      
             <div className="cursor-pointer">
-            <SelectionIcon />
+              <SelectionIcon />
             </div>
           </div>
 
@@ -129,8 +112,8 @@ const DropDown: React.FC<DropDownProps> = ({
         </div>
       );
 
-      default:
+    default:
       return null;
   }
 };
-export default DropDown
+export default DropDown;

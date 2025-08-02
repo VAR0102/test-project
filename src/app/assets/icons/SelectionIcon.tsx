@@ -1,4 +1,3 @@
-
 const SelectionIcon = ({
   width = 22,
   height = 22,

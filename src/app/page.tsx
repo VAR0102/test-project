@@ -1,4 +1,3 @@
-"use client";
 import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
 import StarsIcon from "./assets/icons/StarsIcon";
 import XIcon from "./assets/icons/XIcon";
@@ -7,6 +6,7 @@ import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
 import MeidumButtons from "./MediumButtons";
 import Navigate from "./Navigate";
+import NavigateRail from "./NavigateRail";
 import SearchInput from "./Search";
 
 export default function HomePage() {
@@ -28,21 +28,23 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
-{/* 
+      {/* 
       <Inputs variant="InputData" status="default" />
       <Inputs variant="InputFields" status="default" />
       <Inputs variant="InputText" status="default" label="Label" /> */}
 
-
-
-
-{/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
+      {/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
  <DropDown variant="DropDownSmall" status="default"></DropDown> */}
 
- {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
+      {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
 
+      {/* <Navigate variant="NavigationGroup"> </Navigate> */}
 
-<Navigate variant="NavigationGroup"> </Navigate>
+      {/* <NavigateRail variant="RailSingle">Verification</NavigateRail>
+       */}
+
+      <NavigateRail variant="RailGroup"> </NavigateRail>
+
       <div className=""></div>
     </div>
   );

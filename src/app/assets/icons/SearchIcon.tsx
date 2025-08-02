@@ -1,4 +1,4 @@
-const SearchIcon  = ({
+const SearchIcon = ({
   width = 25,
   height = 25,
 }: {

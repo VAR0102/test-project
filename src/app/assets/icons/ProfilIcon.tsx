@@ -21,4 +21,4 @@ const ProfilIcon = ({
   );
 };
 
-export default  ProfilIcon 
+export default ProfilIcon;
