@@ -9,6 +9,7 @@ import MeidumButtons from "./MediumButtons";
 import Navigate from "./Navigate";
 import NavigateRail from "./NavigateRail";
 import SearchInput from "./Search";
+import SmallTabs from "./SmallTabs";
 
 export default function HomePage() {
   return (
@@ -48,6 +49,8 @@ export default function HomePage() {
       {/* <LargeTabs variant="TabsGroup" status="5th" > </LargeTabs> 
 <LargeTabs variant="TabsSingle">Advisorr</LargeTabs>*/}
 
+
+<SmallTabs variant="TabGroup" status="1st" > </SmallTabs>
       <div className=""></div>
     </div>
   );
