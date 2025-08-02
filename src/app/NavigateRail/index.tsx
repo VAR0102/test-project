@@ -2,8 +2,6 @@
 
 import React from "react";
 import VerifIcon from "../assets/icons/VerifIcon";
-import AdderIcon from "../assets/icons/AdderIcon";
-
 import DropArrowIcon from "../assets/icons/DropArrowIcon";
 import FileIcon2 from "../assets/icons/FileIcon2";
 import SmoogVerifyIcon from "../assets/icons/SmoogVerifyIcon";

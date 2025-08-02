@@ -4,6 +4,7 @@ import XIcon from "./assets/icons/XIcon";
 import DropDown from "./DropDown";
 import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
+import LargeTabs from "./LargeTabs";
 import MeidumButtons from "./MediumButtons";
 import Navigate from "./Navigate";
 import NavigateRail from "./NavigateRail";
@@ -41,9 +42,11 @@ export default function HomePage() {
       {/* <Navigate variant="NavigationGroup"> </Navigate> */}
 
       {/* <NavigateRail variant="RailSingle">Verification</NavigateRail>
-       */}
+        <NavigateRail variant="RailGroup"> </NavigateRail>
 
-      <NavigateRail variant="RailGroup"> </NavigateRail>
+       */}
+      {/* <LargeTabs variant="TabsGroup" status="5th" > </LargeTabs> 
+<LargeTabs variant="TabsSingle">Advisorr</LargeTabs>*/}
 
       <div className=""></div>
     </div>
