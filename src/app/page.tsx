@@ -1,6 +1,7 @@
 import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
 import StarsIcon from "./assets/icons/StarsIcon";
 import XIcon from "./assets/icons/XIcon";
+import Checkbox from "./Checkbox";
 import DropDown from "./DropDown";
 import Inputs from "./Inputs";
 import LargeButton from "./LargeButtons";
@@ -49,8 +50,19 @@ export default function HomePage() {
       {/* <LargeTabs variant="TabsGroup" status="5th" > </LargeTabs> 
 <LargeTabs variant="TabsSingle">Advisorr</LargeTabs>*/}
 
+      {/* <SmallTabs variant="TabGroup" status="1st">  </SmallTabs>
+      <SmallTabs variant="TabLine"> </SmallTabs> */}
 
-<SmallTabs variant="TabGroup" status="1st" > </SmallTabs>
+      <Checkbox variant="CheckSolid" status="number">
+        1
+      </Checkbox>
+
+      <Checkbox variant="CheckSolid" status="check"></Checkbox>
+
+      <Checkbox variant="CheckSolid" status="empty">
+        {" "}
+      </Checkbox>
+
       <div className=""></div>
     </div>
   );
