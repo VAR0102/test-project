@@ -9,6 +9,7 @@ import LargeTabs from "./LargeTabs";
 import MeidumButtons from "./MediumButtons";
 import Navigate from "./Navigate";
 import NavigateRail from "./NavigateRail";
+import OtherComponent from "./OtherComponent";
 import RadioButtons from "./RadioButton";
 import SearchInput from "./Search";
 import SmallTabs from "./SmallTabs";
@@ -53,7 +54,7 @@ export default function HomePage() {
 
       {/* <SmallTabs variant="TabGroup" status="1st">  </SmallTabs>
       <SmallTabs variant="TabLine"> </SmallTabs> */}
-{/* 
+      {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
 
       <Checkbox variant="CheckSolid" status="check"></Checkbox>
@@ -62,9 +63,11 @@ export default function HomePage() {
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
 
-
- {/* <RadioButtons variant="RadioSingle">  </RadioButtons> */}
+      {/* <RadioButtons variant="RadioSingle">  </RadioButtons>
  <RadioButtons variant="RadioGroup"> Option 1</RadioButtons>
+ */}
+      <OtherComponent variant="Drop"></OtherComponent>
+      {/* <OtherComponent variant="Toglle" status="off"></OtherComponent> */}
       <div className=""></div>
     </div>
   );

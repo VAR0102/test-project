@@ -104,7 +104,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
                     : "bg-transparent text-black opacity-30 border-[#0000001A]"
                 }`}
               >
-                {status === "2nd" && index === 0 ? <SignIcon/> : index + 1}
+                {status === "2nd" && index === 0 ? <SignIcon /> : index + 1}
               </button>
               {index < groupItems.length - 1 && (
                 <div className="h-4 w-px bg-gray-400 mt-1" />
