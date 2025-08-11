@@ -102,7 +102,7 @@ const Inputs: React.FC<InputsProps> = ({
                   type="text"
                   disabled={isDisabled}
                   placeholder={
-                    status === "inactive" || status === "error"
+                    status === "inactive" || status === "error" || status === "default"
                       ? index === 0
                         ? "MM"
                         : index === 1
