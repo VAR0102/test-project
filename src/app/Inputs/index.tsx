@@ -17,7 +17,7 @@ interface InputsProps {
   value?: string[];
   errorText?: string;
   onChange?: (index: number, value: string) => void;
-}
+}  
 
 const statusStyle: Record<Status, string> = {
   default: "border border-[#0000001A]",
