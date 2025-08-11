@@ -33,10 +33,10 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
-      {/* 
+      
       <Inputs variant="InputData" status="default" />
       <Inputs variant="InputFields" status="default" />
-      <Inputs variant="InputText" status="default" label="Label" /> */}
+      <Inputs variant="InputText" status="default" label="Label" /> 
 
       {/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
  <DropDown variant="DropDownSmall" status="default"></DropDown> */}
@@ -66,9 +66,9 @@ export default function HomePage() {
       {/* <RadioButtons variant="RadioSingle">  </RadioButtons>
  <RadioButtons variant="RadioGroup"> Option 1</RadioButtons>
  */}
-      <OtherComponent variant="Drop"></OtherComponent>
+      {/* <OtherComponent variant="Drop"></OtherComponent> */}
       {/* <OtherComponent variant="Toglle" status="off"></OtherComponent> */}
-      <div className=""></div>
+
     </div>
   );
 }
