@@ -8,14 +8,14 @@ type Variant =
   | "SecondaryBig"
   | "SecondaryMedium"
   | "SecondarySmall"
-  | "Teritery";
+  | "Tertiary";
 
 interface LargeButtonProps {
   variant: Variant;
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
-  type?: "button" ;
+  type?: "button";
 }
 
 const variantStyles: Record<Variant, string> = {
@@ -29,7 +29,7 @@ const variantStyles: Record<Variant, string> = {
     "w-[160px] h-[55px] bg-[#3C5A4B] text-[16px] rounded-[9px] text-[#FFFFFF] hover:bg-[#66A184]  active:bg-[#304A3D]  disable:bg-[#E0E0E0] disable:text-[#000000]  disabled:cursor-not-allowed ursor-pointer",
   SecondarySmall:
     "w-[140px] h-[55px] bg-[#F2F2F2] text-[16px] rounded-[9px] text-[#000000] hover:bg-[#FCFDFE] active:bg-[#F2F2F2] disable:bg-[#E0E0E0] disable:text-[#000000]  disabled:cursor-not-allowed cursor-pointer",
-  Teritery:
+  Tertiary:
     "w-[50px] h-[50px] rounded-[9px] bg-[#FEB027] hover:bg-[#FFC052] active:bg-[#D49018] disable:bg-[#F8E3C1] cursor-pointer",
 };
 
