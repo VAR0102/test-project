@@ -130,12 +130,12 @@ const Inputs: React.FC<InputsProps> = ({
                     onChange={(e) =>
                       handleInputDataChange(index, e.target.value)
                     }
-                    className={`${getBaseStyle("w-full pt-5 pb-2 text-center px-2 pr-8")} peer`}
+                    className={`${getBaseStyle("w-full pt-5  px-4  ")} peer`}
                     placeholder=" "
                   />
                   <label
-                    className={`absolute left-2 top-[4px] text-xs 
-    ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"}
+                    className={`absolute left-4 top-[10px] text-xs 
+    ${isDisabled ? "text-[#222222]" : "text-[#222222]"}
     ${status === "error" ? "text-[#F04438]" : ""}
   `}
                   >

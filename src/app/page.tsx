@@ -30,11 +30,12 @@ export default function HomePage() {
       <Inputs variant="InputFields" status="default" />
       <Inputs variant="InputText" status="default" label="Label" />  */}
       <div className="w-full flex flex-col space-y-10">
-{/*             
+            
       <Input variant="fields"  />
       <Input variant="text"/>
-      <Input variant="date" /> */}
- <Checkbox variant="group" status="2th"> </Checkbox>
+      <Input variant="date" />
+ {/* <Checkbox variant="group" status="2th"> </Checkbox> */}
+ {/* <Checkbox variant="solid" status="number">1 </Checkbox> */}
 {/* 
       <Checkbox variant="CheckSolid" status="check"></Checkbox>
 
