@@ -1,18 +1,10 @@
 import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
 import StarsIcon from "./assets/icons/StarsIcon";
 import XIcon from "./assets/icons/XIcon";
-import Checkbox from "./Checkbox";
-import DropDown from "./DropDown";
-import Inputs from "./Inputs";
-import LargeButton from "./LargeButtons";
-import LargeTabs from "./LargeTabs";
-import MeidumButtons from "./MediumButtons";
-import Navigate from "./Navigate";
-import NavigateRail from "./NavigateRail";
-import OtherComponent from "./OtherComponent";
-import RadioButtons from "./RadioButton";
-import SearchInput from "./Search";
-import SmallTabs from "./SmallTabs";
+import Checkbox from "./Components/shared/Checkbox";
+import Input from "./Components/shared/Inputs";
+import Inputs from "./Components/shared/Inputs";
+
 
 export default function HomePage() {
   return (
@@ -33,10 +25,22 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
-      
+{/*       
       <Inputs variant="InputData" status="default" />
       <Inputs variant="InputFields" status="default" />
-      <Inputs variant="InputText" status="default" label="Label" /> 
+      <Inputs variant="InputText" status="default" label="Label" />  */}
+      <div className="w-full flex flex-col space-y-10">
+{/*             
+      <Input variant="fields"  />
+      <Input variant="text"/>
+      <Input variant="date" /> */}
+ <Checkbox variant="group" status="2th"> </Checkbox>
+{/* 
+      <Checkbox variant="CheckSolid" status="check"></Checkbox>
+
+      <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
+      <Checkbox variant="CheckGroup" status="1st"> </Checkbox> */}
+      </div>
 
       {/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
  <DropDown variant="DropDownSmall" status="default"></DropDown> */}

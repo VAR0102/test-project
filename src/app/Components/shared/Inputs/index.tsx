@@ -1,14 +1,9 @@
 "use client";
 import React, { useState } from "react";
 
-type Variant = "InputText" | "InputFields" | "InputData";
-type Status =
-  | "default"
-  | "hover"
-  | "active"
-  | "inactive"
-  | "error"
-  | "disabled";
+type Variant = "text" | "fields" | "date";
+
+type Status = "default" | "error" | "disabled";
 
 interface InputsProps {
   variant: Variant;
@@ -17,13 +12,10 @@ interface InputsProps {
   value?: string[];
   errorText?: string;
   onChange?: (index: number, value: string) => void;
-}  
+}
 
 const statusStyle: Record<Status, string> = {
   default: "border border-[#0000001A]",
-  hover: "border border-[#00000066]",
-  active: "border border-[#00000066]",
-  inactive: "border border-[#00000066] text-black font-semibold",
   error: "border border-[#F14922] text-black",
   disabled:
     "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
@@ -37,7 +29,7 @@ const Inputs: React.FC<InputsProps> = ({
   onChange,
 }) => {
   const getBaseStyle = (custom?: string) =>
-    `rounded-[10px] h-[70px] text-[20px] bg-white outline-none ${statusStyle[status]} ${custom ?? ""}`;
+    `rounded-[10px] h-[70px] text-[20px]  border border-[#0000001A] hover:border hover:border-[#00000066] active:border active:border-[#00000066]  bg-white outline-none ${statusStyle[status]} ${custom ?? ""}`;
 
   const isDisabled = status === "disabled";
 
@@ -60,7 +52,7 @@ const Inputs: React.FC<InputsProps> = ({
   };
 
   switch (variant) {
-    case "InputText":
+    case "text":
       return (
         <div className="relative w-[600px] ">
           <input
@@ -72,11 +64,11 @@ const Inputs: React.FC<InputsProps> = ({
               setInputValue(val);
               handleChange(0, val);
             }}
-            className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
+            className={`${getBaseStyle("w-full  px-3.5 pt-[34px] pb-2 ")} `}
             placeholder=" "
           />
           <label
-            className={`absolute left-4 top-2 text-sm 
+            className={`absolute left-4 top-2 text-[14px]  text-[#222222]
                ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
@@ -92,7 +84,7 @@ const Inputs: React.FC<InputsProps> = ({
         </div>
       );
 
-    case "InputFields":
+    case "fields":
       return (
         <div className="space-y-1 w-[400px]">
           <div className="flex items-center space-x-2">
@@ -102,7 +94,7 @@ const Inputs: React.FC<InputsProps> = ({
                   type="text"
                   disabled={isDisabled}
                   placeholder={
-                    status === "inactive" || status === "error" || status === "default"
+                    status === "default"
                       ? index === 0
                         ? "MM"
                         : index === 1
@@ -124,11 +116,11 @@ const Inputs: React.FC<InputsProps> = ({
         </div>
       );
 
-    case "InputData":
+    case "date":
       return (
         <div className="space-y-1 w-[400px]">
           <div className="flex items-center space-x-2">
-            {["Month", "Year", "Day"].map((labelText, index) => (
+            {["Month", "Day", "Year"].map((labelText, index) => (
               <React.Fragment key={labelText}>
                 <div className="relative w-[100px]">
                   <input

@@ -1,7 +1,7 @@
-import AdderIcon from "../assets/icons/AdderIcon";
-import FileIcon from "../assets/icons/FileIcon";
-import HomeIcon from "../assets/icons/HomeIcon";
-import SmileIcon from "../assets/icons/SmileIcon";
+import AdderIcon from "@/app/assets/icons/AdderIcon";
+import FileIcon from "@/app/assets/icons/FileIcon";
+import HomeIcon from "@/app/assets/icons/HomeIcon";
+import SmileIcon from "@/app/assets/icons/SmileIcon";
 
 type Variant = "NavigationSingle" | "NavigationGroup";
 
@@ -20,7 +20,7 @@ const variantStyles: Record<Variant, string> = {
 };
 
 const groupItems = [
-  { icon: <HomeIcon />, label: "Household" },
+  { icon: <HomeIcon/>, label: "Household" },
   { icon: <SmileIcon />, label: "Individuals" },
   { icon: <AdderIcon />, label: "Verify Tax ID" },
   { icon: <FileIcon />, label: "Resources " },
