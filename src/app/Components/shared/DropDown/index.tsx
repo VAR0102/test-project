@@ -1,6 +1,7 @@
+import ProfilIcon from "@/app/assets/icons/ProfilIcon";
+import SelectionIcon from "@/app/assets/icons/SelectionIcon";
 import { useState } from "react";
-import ProfilIcon from "../assets/icons/ProfilIcon";
-import SelectionIcon from "../assets/icons/SelectionIcon";
+
 
 type Variant = "DropDownLarge" | "DropDownSmall";
 
