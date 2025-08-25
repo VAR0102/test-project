@@ -1,6 +1,8 @@
+"use client"
 import ProfilIcon from "@/app/assets/icons/ProfilIcon";
 import SelectionIcon from "@/app/assets/icons/SelectionIcon";
 import { useState } from "react";
+
 
 
 type Variant = "DropDownLarge" | "DropDownSmall";
@@ -53,7 +55,7 @@ const DropDown: React.FC<DropDownProps> = ({
               setInputValue(val);
               handleChange(0, val);
             }}
-            className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
+            className={`${getBaseStyle("w-full  px-3 pt-8  pr-12")} `}
             placeholder=" "
           />
           <label
@@ -65,8 +67,8 @@ const DropDown: React.FC<DropDownProps> = ({
             {label}
           </label>
 
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-            <div className="cursor-pointer">
+          <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center">
+            <div className="cursor-pointer flex flex-row">
               <ProfilIcon />
               <SelectionIcon />
             </div>
@@ -89,12 +91,12 @@ const DropDown: React.FC<DropDownProps> = ({
               setInputValue(val);
               handleChange(0, val);
             }}
-            className={`${getBaseStyle("w-full  px-4 pt-4 pb-2 pr-12")} peer`}
+            className={`${getBaseStyle("w-full  px-3 pt-6 text-[20px]  pr-12")} `}
             placeholder=" "
           />
           <label
             className={`absolute left-4 top-2 text-sm 
-               ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
+               ${isDisabled ? "text-[#B3B3B3]" : "text-[#222222]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
           >

@@ -1,20 +1,21 @@
 "use client";
 
 import React from "react";
-import VerifIcon from "../assets/icons/VerifIcon";
-import DropArrowIcon from "../assets/icons/DropArrowIcon";
-import FileIcon2 from "../assets/icons/FileIcon2";
-import SmoogVerifyIcon from "../assets/icons/SmoogVerifyIcon";
-import CurrencyIcon from "../assets/icons/CurrecnyIcon";
-import AssetsIcon from "../assets/icons/AssetsIcon";
-import LiabilIcon from "../assets/icons/LiabilIcon";
-import AccIcon from "../assets/icons/AccIcon";
-import BudgetIcon from "../assets/icons/BudgetIcon";
-import MonitorIcon from "../assets/icons/MonitorIcon";
-import TaxToolIcon from "../assets/icons/TaxToolIcon";
-import ChatIcon from "../assets/icons/ChatIcon";
-import NewFileIcon from "../assets/icons/NewFileIcon";
-import HeatIcon from "../assets/icons/HeatIcon";
+
+import FileIcon2 from "@/app/assets/icons/FileIcon2";
+import AccIcon from "@/app/assets/icons/AccIcon";
+import AssetsIcon from "@/app/assets/icons/AssetsIcon";
+import BudgetIcon from "@/app/assets/icons/BudgetIcon";
+import ChatIcon from "@/app/assets/icons/ChatIcon";
+import CurrencyIcon from "@/app/assets/icons/CurrecnyIcon";
+import DropArrowIcon from "@/app/assets/icons/DropArrowIcon";
+import HeatIcon from "@/app/assets/icons/HeatIcon";
+import LiabilIcon from "@/app/assets/icons/LiabilIcon";
+import MonitorIcon from "@/app/assets/icons/MonitorIcon";
+import NewFileIcon from "@/app/assets/icons/NewFileIcon";
+import SmoogVerifyIcon from "@/app/assets/icons/SmoogVerifyIcon";
+import TaxToolIcon from "@/app/assets/icons/TaxToolIcon";
+import VerifIcon from "@/app/assets/icons/VerifIcon";
 
 type Variant = "RailSingle" | "RailGroup";
 
@@ -28,7 +29,7 @@ interface NavigateRailProps {
 
 const variantStyles: Record<Variant, string> = {
   RailSingle:
-    "w-[110px] h-[25px] text-[#222222] hover:text-[#222222] active:opacity-50 disabled:opacity-20 cursor-pointer",
+    "w-[110px] h-[25px] text-[#222222] hover:text-[#222222] hover:opacity-80 active:opacity-50 disabled:opacity-20 cursor-pointer",
   RailGroup: "",
 };
 

@@ -37,7 +37,7 @@ const Navigate: React.FC<NavigateProps> = ({
 
   if (variant === "NavigationGroup") {
     return (
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 w-70">
         {groupItems.map((item, idx) => {
           const isFourth = idx === 3;
           const buttonClass = isFourth
@@ -61,15 +61,25 @@ const Navigate: React.FC<NavigateProps> = ({
       </div>
     );
   }
-
+if (variant === "NavigationSingle") {
   return (
-    <button type={type} onClick={onClick} className={combinedClassName}>
-      <span className="flex items-center flex-col gap-2 ">
-        <HomeIcon className="stroke-[#FFFFFF] group-active:stroke-white" />
-        {children}
+    <button
+      type={type}
+      onClick={onClick}
+      className={`group ${combinedClassName}`}
+    >
+      <span className="flex items-center flex-col gap-2 text-center">
+        <HomeIcon className="stroke-black group-active:stroke-white" />
+        <span className="text-black group-active:text-white text-[16px]">
+          {children || "Household"}
+        </span>
       </span>
     </button>
   );
+}
+
+
 };
+
 
 export default Navigate;

@@ -1,5 +1,6 @@
-import TabsIcon1 from "../assets/icons/TabsIcon1";
-import TabsIcon2 from "../assets/icons/TabsIcon2";
+import TabsIcon1 from "@/app/assets/icons/TabsIcon1";
+import TabsIcon2 from "@/app/assets/icons/TabsIcon2";
+
 
 type Variant = "TabLine" | "TabGroup";
 
