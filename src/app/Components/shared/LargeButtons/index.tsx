@@ -1,6 +1,6 @@
+import CursorRightIcon from "@/app/assets/icons/CursorRightIcon";
+import PlusIcon from "@/app/assets/icons/PlusIcon";
 import React from "react";
-import CursorRightIcon from "../assets/icons/CursorRightIcon";
-import PlusIcon from "../assets/icons/PlusIcon";
 
 type Variant =
   | "PrimaryBig"

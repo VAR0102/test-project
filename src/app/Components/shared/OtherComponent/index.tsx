@@ -1,7 +1,8 @@
 "use client";
 
+import UploadIcon from "@/app/assets/icons/UploadIcon";
 import React from "react";
-import UploadIcon from "../assets/icons/UploadIcon";
+
 
 type Variant = "Toglle" | "Drop";
 type Status = "on" | "off";
