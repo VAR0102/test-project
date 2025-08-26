@@ -9,7 +9,7 @@ interface InputsProps {
   variant: Variant;
   status?: Status;
   label?: string;
-  value?: string[];
+  value: string[];
   errorText?: string;
   onChange?: (index: number, value: string) => void;
 }
@@ -54,7 +54,7 @@ const Inputs: React.FC<InputsProps> = ({
   switch (variant) {
     case "text":
       return (
-        <div className="relative w-[600px] ">
+        <div className="relative w-[600px]">
           <input
             type="text"
             disabled={isDisabled}
@@ -88,11 +88,12 @@ const Inputs: React.FC<InputsProps> = ({
       return (
         <div className="space-y-1 w-[400px]">
           <div className="flex items-center space-x-2">
-            {[0, 1, 2].map((index) => (
+            {inputDataValues.map((val, index) => (
               <React.Fragment key={index}>
                 <input
                   type="text"
                   disabled={isDisabled}
+                  value={val}
                   placeholder={
                     status === "default"
                       ? index === 0
@@ -103,7 +104,10 @@ const Inputs: React.FC<InputsProps> = ({
                       : ""
                   }
                   className={getBaseStyle("w-[80px] text-center")}
-                  onChange={(e) => handleChange(index, e.target.value)}
+                  onChange={(e) => {
+                    const onlyNumbers = e.target.value.replace(/[^0-9]/g, "");
+                    handleInputDataChange(index, onlyNumbers);
+                  }}
                 />
                 {index < 2 && <span className="text-black text-2xl">-</span>}
               </React.Fragment>
@@ -127,9 +131,10 @@ const Inputs: React.FC<InputsProps> = ({
                     type="text"
                     disabled={isDisabled}
                     value={inputDataValues[index] || ""}
-                    onChange={(e) =>
-                      handleInputDataChange(index, e.target.value)
-                    }
+                    onChange={(e) => {
+                      const change = e.target.value.replace(/[^0-9]/g, "");
+                      handleInputDataChange(index, change);
+                    }}
                     className={`${getBaseStyle("w-full pt-5  px-4  ")} peer`}
                     placeholder=" "
                   />
@@ -137,7 +142,7 @@ const Inputs: React.FC<InputsProps> = ({
                     className={`absolute left-4 top-[10px] text-xs 
     ${isDisabled ? "text-[#222222]" : "text-[#222222]"}
     ${status === "error" ? "text-[#F04438]" : ""}
-  `}
+  `} 
                   >
                     {labelText}
                   </label>

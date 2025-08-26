@@ -1,16 +1,8 @@
-import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
-import StarsIcon from "./assets/icons/StarsIcon";
-import XIcon from "./assets/icons/XIcon";
-import Checkbox from "./Components/shared/Checkbox";
-import DropDown from "./Components/shared/DropDown";
-import Input from "./Components/shared/Inputs";
-import Inputs from "./Components/shared/Inputs";
-import LargeButton from "./Components/shared/LargeButtons";
-import LargeTabs from "./Components/shared/LargeTabs";
-import Navigate from "./Components/shared/Navigate";
-import NavigateRail from "./Components/shared/NavigateRail";
-import SmallTabs from "./Components/shared/SmallTabs";
 
+import Checkbox from "./Components/shared/Checkbox";
+
+import Input from "./Components/shared/Input";
+import SearchInput from "./Components/shared/Search";
 
 export default function HomePage() {
   return (
@@ -22,12 +14,10 @@ export default function HomePage() {
          <LargeButton variant="SecondaryMedium">Apply Filter</LargeButton>
          <LargeButton variant="SecondarySmall">Add Filter</LargeButton>
          <LargeButton variant="Tertiary"> <StarsIcon /></LargeButton> 
-
     </div> */}
 
 
       {/* 
-      
 <MeidumButtons variant="PrimaryAdd" >Add new client</MeidumButtons>
 <MeidumButtons variant="PrimarySelect">Last 30 days</MeidumButtons>
 <MeidumButtons variant="PrimaryFilter"> Advanced Filter</MeidumButtons> 
@@ -36,23 +26,18 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
-{/*       
-      <Inputs variant="InputData" status="default" />
-      <Inputs variant="InputFields" status="default" />
-      <Inputs variant="InputText" status="default" label="Label" />  */}
-     
-{/*             
-      <Input variant="fields"  />
+      {/* <div className="flex flex-col space-y-10 px-50 pt-50">
+   
+      <Input variant="fields"/>
       <Input variant="text"/>
-      <Input variant="date" /> */}
- {/* <Checkbox variant="group" status="2th"> </Checkbox> */}
- {/* <Checkbox variant="solid" status="number">1 </Checkbox> */}
-{/* 
-      <Checkbox variant="CheckSolid" status="check"></Checkbox>
+      <Input variant="date" /> 
+      </div> */}
 
-      <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
-      <Checkbox variant="CheckGroup" status="1st"> </Checkbox> */}
-     
+      
+ {/* <Checkbox variant="group" status="1"> </Checkbox> */}
+ {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
+
+
 
     {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
     <DropDown variant="DropDownLarge" status="default"></DropDown> 
@@ -60,7 +45,7 @@ export default function HomePage() {
  </div> */}
  
 
-      {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
+       {/* <SearchInput variant="SearchInput" status="default"></SearchInput>  */}
 {/* <div className="flex justify-center pt-50">
       <Navigate variant="NavigationSingle"></Navigate>
       </div> */}

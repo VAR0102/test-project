@@ -3,7 +3,7 @@
 import SignIcon from "@/app/assets/icons/SignIcon";
 
 type Variant = "solid" | "group";
-type Status = "number" | "check" | "empty" | `${number}th`;
+type Status = "number" | "check" | "empty" | `${number}`;
 
 interface CheckboxProps {
   variant: Variant;
@@ -27,6 +27,10 @@ const groupItems = [
   "Confirm electronic signature",
   "Request approval",
 ];
+
+
+
+
 
 const solidStyles: Record<Extract<Status, "number" | "check" | "empty">, string> = {
   number: "bg-[#3C5A4B] text-white border-[#0000001A]",

@@ -1,8 +1,9 @@
 "use client";
+import CommandIcon from "@/app/assets/icons/CommandIcon";
+import SearchIcon from "@/app/assets/icons/SearchIcon";
+import SIcon from "@/app/assets/icons/SIcon";
 import { useState } from "react";
-import SearchIcon from "../assets/icons/SearchIcon";
-import CommandIcon from "../assets/icons/CommandIcon";
-import SIcon from "../assets/icons/SIcon";
+
 
 type Variant = "SearchInput";
 
@@ -75,7 +76,7 @@ const SearchInput: React.FC<SearchInputProps> = ({
           )}
 
           {!isFocused && inputValue === "" && (
-            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2 pointer-events-none">
+            <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center  pointer-events-none">
               <CommandIcon />
               <SIcon />
             </div>
