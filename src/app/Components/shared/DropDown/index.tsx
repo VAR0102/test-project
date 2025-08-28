@@ -1,9 +1,7 @@
-"use client"
+"use client";
 import ProfilIcon from "@/app/assets/icons/ProfilIcon";
 import SelectionIcon from "@/app/assets/icons/SelectionIcon";
 import { useState } from "react";
-
-
 
 type Variant = "DropDownLarge" | "DropDownSmall";
 

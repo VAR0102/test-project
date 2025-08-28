@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Link from "next/link";
 
 import FileIcon2 from "@/app/assets/icons/FileIcon2";
 import AccIcon from "@/app/assets/icons/AccIcon";
@@ -17,7 +18,7 @@ import SmoogVerifyIcon from "@/app/assets/icons/SmoogVerifyIcon";
 import TaxToolIcon from "@/app/assets/icons/TaxToolIcon";
 import VerifIcon from "@/app/assets/icons/VerifIcon";
 
-type Variant = "RailSingle" | "RailGroup";
+type Variant = "single" | "group";
 
 interface NavigateRailProps {
   variant: Variant;
@@ -25,27 +26,29 @@ interface NavigateRailProps {
   className?: string;
   type?: "button";
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const variantStyles: Record<Variant, string> = {
-  RailSingle:
+  single:
     "w-[110px] h-[25px] text-[#222222] hover:text-[#222222] hover:opacity-80 active:opacity-50 disabled:opacity-20 cursor-pointer",
-  RailGroup: "",
+  group: "",
 };
 
+
 const dropdownItems = [
-  { icon: <FileIcon2 />, label: "All" },
-  { icon: <SmoogVerifyIcon />, label: "Verification" },
-  { icon: <CurrencyIcon />, label: "Income" },
-  { icon: <AssetsIcon />, label: "Assets" },
-  { icon: <LiabilIcon />, label: "Tax Records" },
-  { icon: <AccIcon />, label: "Associated Accounts" },
-  { icon: <BudgetIcon />, label: " Budgeting" },
-  { icon: <MonitorIcon />, label: " Monitor" },
-  { icon: <TaxToolIcon />, label: " Tax Filing Tools" },
-  { icon: <ChatIcon />, label: "Client Communication Aids" },
-  { icon: <NewFileIcon />, label: "Compliance & Legal Updates" },
-  { icon: <HeatIcon />, label: "HeatIcon" },
+  { icon: <FileIcon2 />, label: "All", href: "/all" },
+  { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
+  { icon: <CurrencyIcon />, label: "Income", href: "/income" },
+  { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
+  { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
+  { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
+  { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
+  { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
+  { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
+  { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
+  { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
+  { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
 ];
 
 const NavigateRail: React.FC<NavigateRailProps> = ({
@@ -54,18 +57,20 @@ const NavigateRail: React.FC<NavigateRailProps> = ({
   className = "",
   type = "button",
   children,
+  disabled = false,
 }) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
 
-  if (variant === "RailGroup") {
+  if (variant === "group") {
     return (
       <div className="flex flex-col">
         <button
           type={type}
+          disabled={disabled}
           onClick={onClick}
-          className="w-[200px] h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer"
+          className="w-[200px] h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer disabled:opacity-20"
         >
-          <span className="flex items-center gap-2 font-bold">
+          <span className="flex items-center gap-2 font-bold  disabled:opacity-20">
             {<DropArrowIcon />}
             Resources
           </span>
@@ -73,28 +78,35 @@ const NavigateRail: React.FC<NavigateRailProps> = ({
 
         <div className="flex flex-col gap-1 p-2 w-[200px]">
           {dropdownItems.map((item, idx) => (
-            <button
+            <Link
               key={idx}
-              type="button"
-              className={`flex items-center gap-2 w-100 text-[#222] px-2 py-1 ml-5 ${idx === 0 ? "" : "opacity-60"} cursor-pointer`}
+              href={item.href}
+              className={`flex items-center gap-2 w-full text-[#222] px-2 py-1 ml-5 ${
+                idx === 0 ? "" : "opacity-60"
+              } hover:opacity-80 cursor-pointer`}
             >
               {item.icon}
               {item.label}
-            </button>
+            </Link>
           ))}
         </div>
       </div>
     );
   }
 
-  return (
-    <button type={type} onClick={onClick} className={combinedClassName}>
-      <span className="flex items-center flex-row gap-2">
-        <VerifIcon />
-        {children}
-      </span>
-    </button>
-  );
+  if (variant === "single") {
+    return (
+      <Link
+        href="/verification" 
+        className={combinedClassName}
+      >
+        <span className="flex items-center flex-row gap-2">
+          <VerifIcon />
+          {children}
+        </span>
+      </Link>
+    );
+  }
 };
 
 export default NavigateRail;

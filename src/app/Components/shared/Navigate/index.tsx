@@ -20,7 +20,7 @@ const variantStyles: Record<Variant, string> = {
 };
 
 const groupItems = [
-  { icon: <HomeIcon/>, label: "Household" },
+  { icon: <HomeIcon />, label: "Household" },
   { icon: <SmileIcon />, label: "Individuals" },
   { icon: <AdderIcon />, label: "Verify Tax ID" },
   { icon: <FileIcon />, label: "Resources " },
@@ -61,25 +61,22 @@ const Navigate: React.FC<NavigateProps> = ({
       </div>
     );
   }
-if (variant === "NavigationSingle") {
-  return (
-    <button
-      type={type}
-      onClick={onClick}
-      className={`group ${combinedClassName}`}
-    >
-      <span className="flex items-center flex-col gap-2 text-center">
-        <HomeIcon className="stroke-black group-active:stroke-white" />
-        <span className="text-black group-active:text-white text-[16px]">
-          {children || "Household"}
+  if (variant === "NavigationSingle") {
+    return (
+      <button
+        type={type}
+        onClick={onClick}
+        className={`group ${combinedClassName}`}
+      >
+        <span className="flex items-center flex-col gap-2 text-center">
+          <HomeIcon className="stroke-black group-active:stroke-white" />
+          <span className="text-black group-active:text-white text-[16px]">
+            {children || "Household"}
+          </span>
         </span>
-      </span>
-    </button>
-  );
-}
-
-
+      </button>
+    );
+  }
 };
-
 
 export default Navigate;

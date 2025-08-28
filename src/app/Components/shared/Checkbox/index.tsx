@@ -12,6 +12,7 @@ interface CheckboxProps {
   className?: string;
   type?: "button";
   children?: React.ReactNode;
+  disabled?: boolean;
 }
 
 const groupItems = [
@@ -28,11 +29,10 @@ const groupItems = [
   "Request approval",
 ];
 
-
-
-
-
-const solidStyles: Record<Extract<Status, "number" | "check" | "empty">, string> = {
+const solidStyles: Record<
+  Extract<Status, "number" | "check" | "empty">,
+  string
+> = {
   number: "bg-[#3C5A4B] text-white border-[#0000001A]",
   check: "bg-white text-black border-[#0000001A]",
   empty: "bg-transparent text-black border-[#0000001A]",
@@ -45,6 +45,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   className = "",
   type = "button",
   children,
+  disabled = false,
 }) => {
   if (variant === "solid") {
     const style = solidStyles[status as "number" | "check" | "empty"];
@@ -53,8 +54,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
     return (
       <button
         type={type}
-        onClick={() => onClick?.()}
-        className={`w-[40px] h-[40px] border rounded-[12px] text-[16px] font-medium flex items-center justify-center ${style} ${className}`}
+        disabled={disabled}
+        onClick={() => !disabled && onClick?.()}
+        className={`w-[40px] h-[40px] border rounded-[12px] text-[16px] font-medium flex items-center justify-center
+          ${style} ${className}
+          ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
       >
         {content}
       </button>
@@ -62,8 +66,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
   }
 
   if (variant === "group") {
-const parsedIndex = Number.parseInt(status);
-const statusIndex = isNaN(parsedIndex) ? -1 : parsedIndex - 1;
+    const parsedIndex = Number.parseInt(status);
+    const statusIndex = isNaN(parsedIndex) ? -1 : parsedIndex - 1;
 
     return (
       <div className="flex flex-col items-start space-y-0">
@@ -72,14 +76,17 @@ const statusIndex = isNaN(parsedIndex) ? -1 : parsedIndex - 1;
             <div className="flex flex-col items-center">
               <button
                 type={type}
-                onClick={() => onClick?.(index)}
-                className={`w-[40px] h-[40px] border border-[#0000001A] rounded-[12px] text-[16px] font-medium flex items-center justify-center ${
-                  index === statusIndex
-                    ? "bg-[#3C5A4B] text-white"
-                    : index < statusIndex
-                    ? "bg-[#FFFFFF] text-white"
-                    : "bg-transparent text-[#0000007d]  border-[#0000001A]"
-                }`}
+                disabled={disabled}
+                onClick={() => !disabled && onClick?.(index)}
+                className={`w-[40px] h-[40px] border border-[#0000001A] rounded-[12px] text-[16px] font-medium flex items-center justify-center
+                  ${
+                    index === statusIndex
+                      ? "bg-[#3C5A4B] text-white"
+                      : index < statusIndex
+                        ? "bg-[#FFFFFF] text-white"
+                        : "bg-transparent text-[#0000007d] border-[#0000001A]"
+                  }
+                  ${disabled ? "opacity-50 cursor-not-allowed" : ""}`}
               >
                 {index < statusIndex ? <SignIcon /> : index + 1}
               </button>
@@ -88,13 +95,15 @@ const statusIndex = isNaN(parsedIndex) ? -1 : parsedIndex - 1;
               )}
             </div>
             <span
-              className={`text-[16px] pt-2 ${
-                index === statusIndex
-                  ? "text-[#222222] font-semibold"
-                  : index < statusIndex
-                  ? "text-[#222222] opacity-70"
-                  : "opacity-30"
-              }`}
+              className={`text-[16px] pt-2
+                ${
+                  index === statusIndex
+                    ? "text-[#222222] font-semibold"
+                    : index < statusIndex
+                      ? "text-[#222222] opacity-70"
+                      : "opacity-30"
+                }
+                ${disabled ? "opacity-50" : ""}`}
             >
               {label}
             </span>

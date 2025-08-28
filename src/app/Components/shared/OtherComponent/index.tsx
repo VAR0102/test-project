@@ -3,7 +3,6 @@
 import UploadIcon from "@/app/assets/icons/UploadIcon";
 import React from "react";
 
-
 type Variant = "Toglle" | "Drop";
 type Status = "on" | "off";
 

@@ -4,7 +4,6 @@ import SearchIcon from "@/app/assets/icons/SearchIcon";
 import SIcon from "@/app/assets/icons/SIcon";
 import { useState } from "react";
 
-
 type Variant = "SearchInput";
 
 type Status = "default" | "error" | "disabled";
