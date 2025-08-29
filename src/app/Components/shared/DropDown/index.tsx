@@ -3,7 +3,7 @@ import ProfilIcon from "@/app/assets/icons/ProfilIcon";
 import SelectionIcon from "@/app/assets/icons/SelectionIcon";
 import { useState } from "react";
 
-type Variant = "DropDownLarge" | "DropDownSmall";
+type Variant = "large" | "small";
 
 type Status = "default" | "error" | "disabled";
 
@@ -12,8 +12,9 @@ interface DropDownProps {
   status?: Status;
   label?: string;
   value?: string[];
-  errorText?: string;
+  error?: string;
   onChange?: (index: number, value: string) => void;
+  disabled?:boolean
 }
 const statusStyle: Record<Status, string> = {
   default: "border border-[#0000001A]",
@@ -26,13 +27,14 @@ const DropDown: React.FC<DropDownProps> = ({
   variant,
   status = "default",
   label = "Label",
-  errorText = "Text",
+  error = "Text",
   onChange,
+  disabled = false
 }) => {
   const getBaseStyle = (custom?: string) =>
     `border border-[#0000001A]" rounded-[10px] h-[70px] text-[20px] bg-white hover:border-[#00000066] active:border-[#00000066] outline-none ${statusStyle[status]} ${custom ?? ""}`;
 
-  const isDisabled = status === "disabled";
+
 
   const [inputValue, setInputValue] = useState("");
 
@@ -41,12 +43,12 @@ const DropDown: React.FC<DropDownProps> = ({
   };
 
   switch (variant) {
-    case "DropDownLarge":
+    case "large":
       return (
         <div className="relative w-[600px] ">
           <input
             type="text"
-            disabled={isDisabled}
+            disabled={disabled}
             value={inputValue}
             onChange={(e) => {
               const val = e.target.value;
@@ -58,7 +60,7 @@ const DropDown: React.FC<DropDownProps> = ({
           />
           <label
             className={`absolute left-4 top-2 text-sm 
-               ${isDisabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
+               ${disabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
           >
@@ -73,16 +75,16 @@ const DropDown: React.FC<DropDownProps> = ({
           </div>
 
           {status === "error" && (
-            <p className="text-[#F04438] text-sm mt-1">{errorText}</p>
+            <p className="text-[#F04438] text-sm mt-1">{error}</p>
           )}
         </div>
       );
-    case "DropDownSmall":
+    case "small":
       return (
         <div className="relative w-[300px] ">
           <input
             type="text"
-            disabled={isDisabled}
+            disabled={disabled}
             value={inputValue}
             onChange={(e) => {
               const val = e.target.value;
@@ -94,7 +96,7 @@ const DropDown: React.FC<DropDownProps> = ({
           />
           <label
             className={`absolute left-4 top-2 text-sm 
-               ${isDisabled ? "text-[#B3B3B3]" : "text-[#222222]"} 
+               ${disabled ? "text-[#B3B3B3]" : "text-[#222222]"} 
                ${status === "error" ? "text-[#F04438]" : ""}
              `}
           >
@@ -108,7 +110,7 @@ const DropDown: React.FC<DropDownProps> = ({
           </div>
 
           {status === "error" && (
-            <p className="text-[#F04438] text-sm mt-1">{errorText}</p>
+            <p className="text-[#F04438] text-sm mt-1">{error}</p>
           )}
         </div>
       );

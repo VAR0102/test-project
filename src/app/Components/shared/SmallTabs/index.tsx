@@ -1,9 +1,9 @@
 import TabsIcon1 from "@/app/assets/icons/TabsIcon1";
 import TabsIcon2 from "@/app/assets/icons/TabsIcon2";
 
-type Variant = "TabLine" | "TabGroup";
+type Variant = "line" | "group";
 
-type Status = "default" | "1st" | "2nd";
+type Status = "default" | "1" | "2";
 
 interface SmallTabsProps {
   variant: Variant;
@@ -11,7 +11,7 @@ interface SmallTabsProps {
   children: React.ReactNode;
   onClick?: () => void;
   className?: string;
-  type?: "button";
+  disabled?: boolean;
 }
 
 const SmallTabs: React.FC<SmallTabsProps> = ({
@@ -20,34 +20,32 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
   children,
   onClick,
   className = "",
-  type = "button",
+  disabled = false,
 }) => {
   const activeIndex = {
-    "1st": 0,
-    "2nd": 1,
+    "1": 0,
+    "2": 1,
     default: 2,
   }[status];
 
-  if (variant === "TabLine") {
-    const isTabLine = variant === "TabLine";
+  if (variant === "line") {
     return (
       <div className="flex flex-row gap-4 ">
         <button
-          type={type}
-          onClick={onClick}
-          className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disable:border-[#0000001A]  text-black  ${className}`}
+       onClick={onClick}
+          className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed disable:text-[#000000] disabled:pointer-events-none  disable:border-[#0000001A] disabled:opacity-50
+              text-black  ${className}`}
+          disabled={disabled}
         >
-          <div className="flex justify-center">
-            {isTabLine && <TabsIcon1 />}
-          </div>
+          <div className="flex justify-center">{<TabsIcon1 />}</div>
 
           {children}
         </button>
 
         <button
-          type={type}
           onClick={onClick}
-          className={`w-[50] h-[50px] rounded-r-[12px] bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disable:border-[#0000001A]  text-black  ${className}`}
+          disabled={disabled}
+          className={`w-[50] h-[50px] rounded-r-[12px] bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disabled:cursor-not-allowed  disabled:pointer-events-none  disable:border-[#0000001A]  disabled:opacity-50 text-black  ${className}`}
         >
           <div className="flex justify-center">
             <TabsIcon2 />
@@ -58,7 +56,7 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
     );
   }
 
-  if (variant === "TabGroup") {
+  if (variant === "group") {
     const items = [
       { icon: <TabsIcon1 />, rounded: "rounded-l-[12px]" },
       { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
@@ -69,7 +67,6 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
         {items.map((item, index) => (
           <button
             key={index}
-            type={type}
             onClick={onClick}
             className={`px-4 py-2 h-[50px] border border-[#0000001A] ${item.rounded} ${
               activeIndex === index

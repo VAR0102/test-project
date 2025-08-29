@@ -66,7 +66,7 @@ const Inputs: React.FC<InputsProps> = ({
             <span className="text-[14px]">{label}</span>
             <input
               type="text"
-              disabled={true}
+              disabled={false}
               value={inputValue}
               onChange={(e) => {
                 const val = e.target.value;
@@ -91,7 +91,7 @@ const Inputs: React.FC<InputsProps> = ({
               <React.Fragment key={index}>
                 <input
                   type="text"
-                  disabled={true}
+                  disabled={false}
                   placeholder={
                     status === "default"
                       ? index === 0

@@ -2,17 +2,16 @@
 
 import React from "react";
 
-type Variant = "TabsSingle" | "TabsGroup";
-
-type Status = "default" | "1st" | "2nd" | "3rd" | "4th" | "5th";
+type Variant = "single" | "group";
+type Status = "default" | "1" | "2" | "3" | "4" | "5";
 
 interface LargeTabsProps {
   variant: Variant;
   status?: Status;
-  children: React.ReactNode;
+  children?: React.ReactNode;
   onClick?: () => void;
   className?: string;
-  type?: "button";
+  disabled?: boolean;
 }
 
 const LargeTabs: React.FC<LargeTabsProps> = ({
@@ -21,48 +20,55 @@ const LargeTabs: React.FC<LargeTabsProps> = ({
   children,
   onClick,
   className = "",
-  type = "button",
+  disabled = false,
 }) => {
   const activeIndex = {
-    "1st": 0,
-    "2nd": 1,
-    "3rd": 2,
-    "4th": 3,
-    "5th": 4,
+    "1": 0,
+    "2": 1,
+    "3": 2,
+    "4": 3,
+    "5": 4,
     default: 5,
   }[status];
 
-  if (variant === "TabsSingle") {
+  if (variant === "single") {
     return (
       <button
-        type={type}
         onClick={onClick}
-        className={`w-[100px] h-[50px] rounded-[12px] bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disable:border-[#0000001A]  text-black  ${className}`}
+        disabled={disabled}
+        className={`w-[100px] h-[50px] rounded-[12px] border border-[#0000001A] text-black 
+          bg-[#FFFFFF03] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-white
+          disabled:text-[#00000080] disabled:border-[#0000001A] disabled:cursor-not-allowed disabled:bg-[#FFFFFF] 
+          ${className}`}
       >
         {children}
       </button>
     );
   }
 
-  if (variant === "TabsGroup") {
+  if (variant === "group") {
     const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
     return (
       <div className="flex space-x-2">
-        {labels.map((label, index) => (
-          <button
-            key={index}
-            type={type}
-            onClick={onClick}
-            className={`px-6 py-2 h-[50px] rounded-[12px] border-1 border-[#0000001A] ${
-              activeIndex === index
-                ? "bg-[#252725] text-[#ffffff]"
-                : "bg-[#FFFFFF03] text-black"
-            }`}
-          >
-            {label}
-          </button>
-        ))}
+        {labels.map((label, index) => {
+          return (
+            <button
+              key={index}
+              onClick={onClick}
+              disabled={disabled}
+              className={`px-6 py-2 h-[50px] rounded-[12px] border border-[#0000001A] 
+                ${
+                  activeIndex === index
+                    ? "bg-[#252725] text-white"
+                    : "bg-[#FFFFFF03] text-black"
+                } 
+                disabled:text-[#00000080] disabled:border-[#0000001A] disabled:bg-[#FFFFFF]  disabled:cursor-not-allowed`}
+            >
+              {label}
+            </button>
+          );
+        })}
       </div>
     );
   }

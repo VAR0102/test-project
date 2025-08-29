@@ -10,24 +10,11 @@ interface CheckboxProps {
   status?: Status;
   onClick?: (index?: number) => void;
   className?: string;
-  type?: "button";
+
   children?: React.ReactNode;
   disabled?: boolean;
 }
 
-const groupItems = [
-  "Verify your financial information",
-  "Name and SSN",
-  "Mobile number",
-  "Date of birth",
-  "Tax return address",
-  "Years to collect",
-  "Gathering tax information",
-  "Authority documentation",
-  "Sign agreement",
-  "Confirm electronic signature",
-  "Request approval",
-];
 
 const solidStyles: Record<
   Extract<Status, "number" | "check" | "empty">,
@@ -43,7 +30,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
   status = "",
   onClick,
   className = "",
-  type = "button",
+
   children,
   disabled = false,
 }) => {
@@ -53,8 +40,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
     return (
       <button
-        type={type}
-        disabled={disabled}
+ 
+  
         onClick={() => !disabled && onClick?.()}
         className={`w-[40px] h-[40px] border rounded-[12px] text-[16px] font-medium flex items-center justify-center
           ${style} ${className}
@@ -75,8 +62,8 @@ const Checkbox: React.FC<CheckboxProps> = ({
           <div key={index} className="flex items-start space-x-2">
             <div className="flex flex-col items-center">
               <button
-                type={type}
-                disabled={disabled}
+               
+                
                 onClick={() => !disabled && onClick?.(index)}
                 className={`w-[40px] h-[40px] border border-[#0000001A] rounded-[12px] text-[16px] font-medium flex items-center justify-center
                   ${

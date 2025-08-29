@@ -11,7 +11,7 @@ interface OtherComponentsProps {
   status?: Status;
   onClick?: (index?: number) => void;
   className?: string;
-  type?: "button";
+
   children?: React.ReactNode;
 }
 
@@ -25,14 +25,14 @@ const OtherComponent: React.FC<OtherComponentsProps> = ({
   status = "off",
   onClick,
   className = "",
-  type = "button",
+ 
   children,
 }) => {
   if (variant === "Toglle") {
     const styles = solidStyles[status];
     return (
       <button
-        type={type}
+  
         onClick={() => onClick?.()}
         className={`relative cursor-pointer flex items-center justify-start ${styles} ${className}`}
       >

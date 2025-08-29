@@ -22,14 +22,14 @@ type Variant = "single" | "group";
 
 interface NavigateRailProps {
   variant: Variant;
-  onClick?: () => void;
+  onClick?: () => void; // 
   className?: string;
   type?: "button";
   children?: React.ReactNode;
   disabled?: boolean;
 }
 
-const variantStyles: Record<Variant, string> = {
+const variantStyles = {
   single:
     "w-[110px] h-[25px] text-[#222222] hover:text-[#222222] hover:opacity-80 active:opacity-50 disabled:opacity-20 cursor-pointer",
   group: "",
@@ -51,14 +51,14 @@ const dropdownItems = [
   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
 ];
 
-const NavigateRail: React.FC<NavigateRailProps> = ({
+const NavigateRail  = ({
   variant,
   onClick,
   className = "",
   type = "button",
   children,
-  disabled = false,
-}) => {
+  disabled=false,
+}:NavigateRailProps) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
 
   if (variant === "group") {
@@ -77,12 +77,12 @@ const NavigateRail: React.FC<NavigateRailProps> = ({
         </button>
 
         <div className="flex flex-col gap-1 p-2 w-[200px]">
-          {dropdownItems.map((item, idx) => (
+          {dropdownItems.map((item, index) => (
             <Link
-              key={idx}
+              key={index}
               href={item.href}
               className={`flex items-center gap-2 w-full text-[#222] px-2 py-1 ml-5 ${
-                idx === 0 ? "" : "opacity-60"
+                index === 0 ? "" : "opacity-60"
               } hover:opacity-80 cursor-pointer`}
             >
               {item.icon}
