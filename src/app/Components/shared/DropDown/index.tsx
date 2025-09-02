@@ -1,122 +1,117 @@
 "use client";
-import ProfilIcon from "@/app/assets/icons/ProfilIcon";
-import SelectionIcon from "@/app/assets/icons/SelectionIcon";
-import { useState } from "react";
+import React, { useState } from "react";
 
 type Variant = "large" | "small";
 
-type Status = "default" | "error" | "disabled";
-
 interface DropDownProps {
   variant: Variant;
-  status?: Status;
   label?: string;
-  value?: string[];
+  options: string[];
   error?: string;
-  onChange?: (index: number, value: string) => void;
-  disabled?:boolean
+  onChange?: (value: string) => void;
+  profileIcon?: React.ReactNode;
+  rightIcon?: React.ReactNode;
+  disabled?: boolean;
 }
-const statusStyle: Record<Status, string> = {
-  default: "border border-[#0000001A]",
-  error: "border border-[#F14922] text-black",
-  disabled:
-    "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
-};
 
-const DropDown: React.FC<DropDownProps> = ({
+const DropDown = ({
   variant,
-  status = "default",
-  label = "Label",
-  error = "Text",
+  label = "",
+  options,
+  error = "",
   onChange,
-  disabled = false
-}) => {
-  const getBaseStyle = (custom?: string) =>
-    `border border-[#0000001A]" rounded-[10px] h-[70px] text-[20px] bg-white hover:border-[#00000066] active:border-[#00000066] outline-none ${statusStyle[status]} ${custom ?? ""}`;
+  disabled = false,
+  rightIcon,
+  profileIcon,
+}: DropDownProps) => {
+  const [selected, setSelected] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
-
-
-  const [inputValue, setInputValue] = useState("");
-
-  const handleChange = (index: number, value: string) => {
-    if (onChange) onChange(index, value);
+  const handleSelect = (option: string) => {
+    setSelected(option);
+    setIsOpen(false);
+    onChange?.(option);
   };
 
-  switch (variant) {
-    case "large":
-      return (
-        <div className="relative w-[600px] ">
-          <input
-            type="text"
-            disabled={disabled}
-            value={inputValue}
-            onChange={(e) => {
-              const val = e.target.value;
-              setInputValue(val);
-              handleChange(0, val);
-            }}
-            className={`${getBaseStyle("w-full  px-3 pt-8  pr-12")} `}
-            placeholder=" "
-          />
-          <label
-            className={`absolute left-4 top-2 text-sm 
-               ${disabled ? "text-[#B3B3B3]" : "text-[#00000080]"} 
-               ${status === "error" ? "text-[#F04438]" : ""}
-             `}
-          >
-            {label}
-          </label>
+  const baseClass =
+    "rounded-[10px] h-[70px] text-[20px] border  bg-white border-[#0000001A] hover:border-[#00000066] px-3 pt-8 pr-12 relative outline-none cursor-pointer transition duration-200";
+  const smallClass =
+    "rounded-[10px] h-[50px] text-[20px] border bg-white px-3  border-[#0000001A] hover:border-[#00000066] pt-6 pr-12 relative outline-none cursor-pointer transition duration-200";
 
-          <div className="absolute right-5 top-1/2 transform -translate-y-1/2 flex items-center">
-            <div className="cursor-pointer flex flex-row">
-              <ProfilIcon />
-              <SelectionIcon />
+  if (variant === "large") {
+    const isError = !error && selected === "";
+    return (
+      <>
+        <div className="relative w-[600px]">
+          <div
+            onClick={() => setIsOpen((open) => !open)}
+            className={`${baseClass} 
+     ${isError ? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A] hover:border-[#00000066]"} 
+    ${disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""} 
+    flex items-center pb-8 justify-between`}
+          >
+            <span>{selected || label}</span>
+            <div className="flex items-center space-x-1">
+              {profileIcon && profileIcon}
+              {rightIcon && rightIcon}
             </div>
           </div>
 
-          {status === "error" && (
-            <p className="text-[#F04438] text-sm mt-1">{error}</p>
+          {isOpen && (
+            <div className="absolute top-full  w-full mt-1 border border-[#0000001A] rounded-[10px] bg-white ">
+              {options.map((option) => (
+                <div
+                  key={option}
+                  onClick={() => handleSelect(option)}
+                  className={`px-3 py-2 hover:bg-gray-100 cursor-pointer
+                  ${error ? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A]"}`}
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
           )}
+          {isOpen && <p className="text-[#F04438] text-sm mt-1">{error}</p>}
         </div>
-      );
-    case "small":
-      return (
-        <div className="relative w-[300px] ">
-          <input
-            type="text"
-            disabled={disabled}
-            value={inputValue}
-            onChange={(e) => {
-              const val = e.target.value;
-              setInputValue(val);
-              handleChange(0, val);
-            }}
-            className={`${getBaseStyle("w-full  px-3 pt-6 text-[20px]  pr-12")} `}
-            placeholder=" "
-          />
-          <label
-            className={`absolute left-4 top-2 text-sm 
-               ${disabled ? "text-[#B3B3B3]" : "text-[#222222]"} 
-               ${status === "error" ? "text-[#F04438]" : ""}
-             `}
-          >
-            {label}
-          </label>
+      </>
+    );
+  }
 
-          <div className="absolute right-4 top-1/2 transform -translate-y-1/2 flex items-center space-x-2">
-            <div className="cursor-pointer">
-              <SelectionIcon />
+  if (variant === "small") {
+    return (
+      <>
+        <div className="relative w-[300px]">
+          <div
+            onClick={() => setIsOpen((prev) => !prev)}
+            className={`${smallClass} border  ${
+              disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""
+            } flex items-center pb-6 justify-between  `}
+          >
+            <span>{selected || label}</span>
+            <div className="flex items-center space-x-1 ">
+              {rightIcon && rightIcon}
             </div>
           </div>
 
-          {status === "error" && (
-            <p className="text-[#F04438] text-sm mt-1">{error}</p>
+          {isOpen && (
+            <div className="absolute top-full left-0 w-full mt-1 border border-[#0000001A] rounded-[10px] bg-white shadow-lg z-10">
+              {options.map((option) => (
+                <div
+                  key={option}
+                  onClick={() => handleSelect(option)}
+                  className="px-3 py-2 hover:bg-gray-100 cursor-pointer"
+                >
+                  {option}
+                </div>
+              ))}
+            </div>
           )}
-        </div>
-      );
 
-    default:
-      return null;
+          {isOpen && <p className="text-[#F04438] text-sm mt-1">{error}</p>}
+        </div>
+      </>
+    );
   }
 };
+
 export default DropDown;

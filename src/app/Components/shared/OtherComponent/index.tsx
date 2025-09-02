@@ -1,64 +1,72 @@
 "use client";
 
-import UploadIcon from "@/app/assets/icons/UploadIcon";
-import React from "react";
+import React, { useState } from "react";
 
-type Variant = "Toglle" | "Drop";
-type Status = "on" | "off";
+type Variant = "toglle" | "drop";
 
 interface OtherComponentsProps {
   variant: Variant;
-  status?: Status;
-  onClick?: (index?: number) => void;
   className?: string;
-
-  children?: React.ReactNode;
+  children?: string;
+  leftIcon?: React.ReactNode;
+  disabled?: boolean;
 }
-
-const solidStyles: Record<Status, string> = {
+const solidStyles = {
   on: "w-[60px] h-[30px] bg-[#3C5A4B] rounded-[20px]",
-  off: "bg-[#E6E6E6] w-[60px] h-[30px] rounded-[20px]",
+  off: "w-[60px] h-[30px] bg-[#E6E6E6] rounded-[20px]",
 };
 
-const OtherComponent: React.FC<OtherComponentsProps> = ({
+const OtherComponent = ({
   variant,
-  status = "off",
-  onClick,
   className = "",
- 
   children,
-}) => {
-  if (variant === "Toglle") {
-    const styles = solidStyles[status];
+  leftIcon,
+  disabled = false,
+}: OtherComponentsProps) => {
+  const [toggled, setToggled] = useState(false);
+
+  if (variant === "toglle") {
     return (
       <button
-  
-        onClick={() => onClick?.()}
-        className={`relative cursor-pointer flex items-center justify-start ${styles} ${className}`}
+        onClick={() => {
+          setToggled((state) => !state);
+        }}
+        className={`relative cursor-pointer flex items-center transition-all duration-300 ${
+          toggled ? solidStyles.on : solidStyles.off
+        } ${className}`}
       >
-        <span className="w-[24px] h-[24px] ml-1 bg-white rounded-full"></span>
+        <span
+          className={`w-[24px] h-[24px] bg-white rounded-full transition-all duration-300 ${
+            toggled ? "ml-[34px]" : "ml-1"
+          }`}
+        ></span>
         {children}
       </button>
     );
   }
 
-  if (variant === "Drop") {
+  if (variant === "drop") {
     return (
-      <div className="w-[630px] h-[290px] bg-[#FFFFFF] hover:bg-[#B0DDFF66]  rounded-2xl flex justify-center ">
+      <div className="w-[630px] h-[290px] bg-[#FFFFFF] hover:bg-[#B0DDFF66] disabled:bg-[#FFFFFF] disabled:hover:bg-[#FFFFFF] disabled:hover:opacity-20  rounded-2xl flex justify-center ">
         <div
-          className={`border border-dashed w-[600px] h-[260px] border-gray-400 hover:border-[#B0DDFF] mt-5 rounded-lg p-4 text-center space-y-2  ${className}`}
+          className={`border border-dashed disabled:border:opacity-20 w-[600px] h-[260px] border-gray-400 hover:border-[#B0DDFF] disabled:bg-[#FFFFFF] disabled:hover:bg-[#FFFFFF] disabled:opacity-20 mt-5 rounded-lg p-4 text-center space-y-2 ${className}`}
         >
-          <div className="flex flex-row text-center items-center justify-center mt-25  space-y-2">
-            <div className="px-3">
-              <UploadIcon />
-            </div>
+          <div className="flex flex-row text-center items-center justify-center mt-25 space-y-2">
+            <div className="px-3">{leftIcon && leftIcon}</div>
             <p className="flex text-[#000000]">Drop pdf or image here</p>
-            <span className="ml-4  text-[#000000] ">or</span>
+            <span className="ml-4 text-[#000000]">or</span>
+
+            <input
+              id="fileInput"
+              type="file"
+              className="hidden"
+              onChange={(e) => console.log(e.target.files)}
+            />
 
             <button
-              onClick={() => onClick?.()}
-              type="button"
-              className="px-3 py-1 ml-6 w-[100px] h-[50px] bg-[#F2F2F2] text-[#000000]  rounded-[12px] text-[16px]"
+              onClick={() => document.getElementById("fileInput")?.click()}
+              disabled={disabled}
+              className="px-3 py-1 ml-6 w-[100px] h-[50px] bg-[#F2F2F2] text-[#000000] rounded-[12px] text-[16px] cursor-pointer disabled:bg-[#FFFFFF] disabled:hover:bg-[#FFFFFF] disabled:opacity-20"
             >
               Upload
             </button>

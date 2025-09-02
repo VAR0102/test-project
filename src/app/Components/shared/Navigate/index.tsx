@@ -1,54 +1,51 @@
-import AdderIcon from "@/app/assets/icons/AdderIcon";
-import FileIcon from "@/app/assets/icons/FileIcon";
 import HomeIcon from "@/app/assets/icons/HomeIcon";
-import SmileIcon from "@/app/assets/icons/SmileIcon";
 
-type Variant = "NavigationSingle" | "NavigationGroup";
+type Variant = "single" | "group";
+
+interface GroupItem {
+  icon: React.ReactNode;
+  label: string;
+}
 
 interface NavigateProps {
   variant: Variant;
   onClick?: () => void;
   className?: string;
-  type?: "button";
-  children?: React.ReactNode;
+  children?: string;
+  groupItems?: GroupItem[];
+  disabled?: boolean;
 }
 
-const variantStyles: Record<Variant, string> = {
-  NavigationSingle:
-    "w-[150px] h-[90px] bg-[#FFFFFF] hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
-  NavigationGroup: "",
+const variantStyles = {
+  single:
+    "w-[150px] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
+  group: "",
 };
 
-const groupItems = [
-  { icon: <HomeIcon />, label: "Household" },
-  { icon: <SmileIcon />, label: "Individuals" },
-  { icon: <AdderIcon />, label: "Verify Tax ID" },
-  { icon: <FileIcon />, label: "Resources " },
-];
-
-const Navigate: React.FC<NavigateProps> = ({
+const Navigate = ({
   variant,
   onClick,
   className = "",
-  type = "button",
-  children,
-}) => {
+  groupItems = [],
+  children = "Household",
+  disabled = false,
+}: NavigateProps) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
 
-  if (variant === "NavigationGroup") {
+  if (variant === "group") {
     return (
       <div className="grid grid-cols-2 w-70">
-        {groupItems.map((item, idx) => {
-          const isFourth = idx === 3;
+        {groupItems.map((item, index) => {
+          const isFourth = index === 3;
           const buttonClass = isFourth
             ? "bg-[#222222] text-white"
             : "bg-[#FFFFFF] text-[#222222] ";
 
           return (
             <button
-              key={idx}
-              type={type}
+              key={index}
               onClick={onClick}
+              disabled={disabled}
               className={`w-[150px] h-[90px] rounded-[8px] text-[16px] cursor-pointer ${buttonClass}`}
             >
               <span className="flex items-center flex-col gap-2">
@@ -61,17 +58,17 @@ const Navigate: React.FC<NavigateProps> = ({
       </div>
     );
   }
-  if (variant === "NavigationSingle") {
+  if (variant === "single") {
     return (
       <button
-        type={type}
         onClick={onClick}
+        disabled={disabled}
         className={`group ${combinedClassName}`}
       >
         <span className="flex items-center flex-col gap-2 text-center">
           <HomeIcon className="stroke-black group-active:stroke-white" />
           <span className="text-black group-active:text-white text-[16px]">
-            {children || "Household"}
+            {children}
           </span>
         </span>
       </button>

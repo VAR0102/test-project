@@ -22,8 +22,7 @@ interface ButtonProps {
   className?: string;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  disabled?:boolean
-  
+  disabled?: boolean;
 }
 
 const variantStyles = {
@@ -64,8 +63,8 @@ const Button = ({
   className = "",
   leftIcon,
   rightIcon,
-  disabled 
-}:ButtonProps) => {
+  disabled,
+}: ButtonProps) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
 
   return (

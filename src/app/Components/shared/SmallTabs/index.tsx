@@ -1,30 +1,35 @@
 import TabsIcon1 from "@/app/assets/icons/TabsIcon1";
 import TabsIcon2 from "@/app/assets/icons/TabsIcon2";
+import React from "react";
 
 type Variant = "line" | "group";
 
-type Status = "default" | "1" | "2";
+type Status = "default" | "first" | "second";
 
 interface SmallTabsProps {
   variant: Variant;
   status?: Status;
-  children: React.ReactNode;
+  children: string;
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
+  icon1?: React.ReactNode;
+  icon2?: React.ReactNode;
 }
 
-const SmallTabs: React.FC<SmallTabsProps> = ({
+const SmallTabs = ({
   variant,
   status = "default",
   children,
   onClick,
   className = "",
   disabled = false,
-}) => {
+  icon1,
+  icon2,
+}: SmallTabsProps) => {
   const activeIndex = {
-    "1": 0,
-    "2": 1,
+    first: 0,
+    second: 1,
     default: 2,
   }[status];
 
@@ -32,12 +37,12 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
     return (
       <div className="flex flex-row gap-4 ">
         <button
-       onClick={onClick}
+          onClick={onClick}
           className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed disable:text-[#000000] disabled:pointer-events-none  disable:border-[#0000001A] disabled:opacity-50
               text-black  ${className}`}
           disabled={disabled}
         >
-          <div className="flex justify-center">{<TabsIcon1 />}</div>
+          <div className="flex justify-center">{icon1 && icon1}</div>
 
           {children}
         </button>
@@ -47,9 +52,7 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
           disabled={disabled}
           className={`w-[50] h-[50px] rounded-r-[12px] bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disabled:cursor-not-allowed  disabled:pointer-events-none  disable:border-[#0000001A]  disabled:opacity-50 text-black  ${className}`}
         >
-          <div className="flex justify-center">
-            <TabsIcon2 />
-          </div>
+          <div className="flex justify-center">{icon2 && icon2}</div>
           {children}
         </button>
       </div>
@@ -58,7 +61,7 @@ const SmallTabs: React.FC<SmallTabsProps> = ({
 
   if (variant === "group") {
     const items = [
-      { icon: <TabsIcon1 />, rounded: "rounded-l-[12px]" },
+      { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
       { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
     ];
 

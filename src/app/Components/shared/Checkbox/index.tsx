@@ -15,7 +15,6 @@ interface CheckboxProps {
   disabled?: boolean;
 }
 
-
 const solidStyles: Record<
   Extract<Status, "number" | "check" | "empty">,
   string
@@ -40,8 +39,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
     return (
       <button
- 
-  
         onClick={() => !disabled && onClick?.()}
         className={`w-[40px] h-[40px] border rounded-[12px] text-[16px] font-medium flex items-center justify-center
           ${style} ${className}
@@ -62,8 +59,6 @@ const Checkbox: React.FC<CheckboxProps> = ({
           <div key={index} className="flex items-start space-x-2">
             <div className="flex flex-col items-center">
               <button
-               
-                
                 onClick={() => !disabled && onClick?.(index)}
                 className={`w-[40px] h-[40px] border border-[#0000001A] rounded-[12px] text-[16px] font-medium flex items-center justify-center
                   ${

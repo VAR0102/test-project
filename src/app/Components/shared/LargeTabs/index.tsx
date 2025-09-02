@@ -8,20 +8,22 @@ type Status = "default" | "1" | "2" | "3" | "4" | "5";
 interface LargeTabsProps {
   variant: Variant;
   status?: Status;
-  children?: React.ReactNode;
+  children?: string;
   onClick?: () => void;
   className?: string;
   disabled?: boolean;
+  labels?: string[];
 }
 
-const LargeTabs: React.FC<LargeTabsProps> = ({
+const LargeTabs = ({
   variant,
   status = "default",
   children,
   onClick,
   className = "",
   disabled = false,
-}) => {
+  labels = [],
+}: LargeTabsProps) => {
   const activeIndex = {
     "1": 0,
     "2": 1,
@@ -47,8 +49,6 @@ const LargeTabs: React.FC<LargeTabsProps> = ({
   }
 
   if (variant === "group") {
-    const labels = ["All", "Advisor", "Family", "Households", "Members"];
-
     return (
       <div className="flex space-x-2">
         {labels.map((label, index) => {

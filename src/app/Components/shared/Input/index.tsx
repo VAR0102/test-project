@@ -2,11 +2,9 @@
 import React, { useState } from "react";
 
 type Variant = "text" | "fields" | "date";
-type Status = "default" | "error" | "disabled";
 
 interface InputsProps {
   variant: Variant;
-  status?: Status;
   label?: string;
   value?: string[];
   error?: string;
@@ -14,27 +12,25 @@ interface InputsProps {
   onChange?: (index: number, value: string) => void;
 }
 
-const statusStyle: Record<Status, string> = {
+const statusStyle = {
   default: "border border-[#0000001A]",
   error: "border border-[#F14922] text-black",
   disabled:
     "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
 };
 
-const Inputs: React.FC<InputsProps> = ({
+const Inputs = ({
   variant,
-  status = "default",
+
   label = "Label",
   error = "Text",
   disabled = false,
   onChange,
-}) => {
+}: InputsProps) => {
   const getBaseStyle = (custom?: string) =>
     `rounded-[10px] h-[70px] text-[20px] border border-[#0000001A] 
      hover:border hover:border-[#00000066] active:border active:border-[#00000066]  
-     bg-white outline-none transition duration-300  ${statusStyle[status]} ${custom ?? ""}`;
-
-
+     bg-white outline-none transition duration-300  ${statusStyle} ${custom ?? ""}`;
 
   const [inputValue, setInputValue] = useState("");
   const [inputDataValues, setInputDataValues] = useState<string[]>([
@@ -56,17 +52,18 @@ const Inputs: React.FC<InputsProps> = ({
 
   switch (variant) {
     case "text":
+      const isError = inputValue !== "" && !/[a-zA-Z]/.test(inputValue);
+
       return (
         <div className="w-[600px]">
           <label
-            className={`flex flex-col px-3.5 pt-2 space-y-1 pb-1 rounded-[10px] border
-            ${disabled ? "text-[#B3B3B3] bg-[#F9F9F9]" : "text-[#222222] bg-white"}
-            ${status === "error" ? "border-[#F04438] text-[#222222]" : "border-[#0000001A]"}`}
+            className={`flex flex-col px-3.5 pt-2 space-y-1 pb-1 rounded-[10px] border hover:border-[#00000066]
+        ${disabled ? "text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed" : "text-[#222222] bg-white"}
+        ${isError ? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A]"}`}
           >
             <span className="text-[14px]">{label}</span>
             <input
-              type="text"
-              disabled={false}
+              disabled={disabled}
               value={inputValue}
               onChange={(e) => {
                 const val = e.target.value;
@@ -77,44 +74,43 @@ const Inputs: React.FC<InputsProps> = ({
             />
           </label>
 
-          {status === "error" && (
-            <p className="text-[#F04438] text-sm mt-1">{error}</p>
-          )}
+          {isError && <p className="text-[#F04438] text-sm mt-1">{error}</p>}
         </div>
       );
 
     case "fields":
+      const maximumLengths = [3, 2, 4];
+      const Error = !/[a-zA-Z]/.test(inputDataValues.join(""));
+
       return (
         <div className="space-y-1 w-[400px]">
           <div className="flex items-center space-x-2">
             {[0, 1, 2].map((index) => (
               <React.Fragment key={index}>
                 <input
-                  type="text"
-                  disabled={false}
+                  disabled={disabled}
                   placeholder={
-                    status === "default"
-                      ? index === 0
-                        ? "MM"
-                        : index === 1
-                          ? "YYYY"
-                          : "DD"
-                      : ""
+                    index === 0 ? "MMM" : index === 1 ? "YY" : "DDDD"
                   }
-                  className={getBaseStyle("w-[80px] text-center")}
-                  onChange={(e) => handleChange(index, e.target.value)}
+                  value={inputDataValues[index]}
+                  onChange={(e) => handleInputDataChange(index, e.target.value)}
+                  maxLength={maximumLengths[index]}
+                  className={getBaseStyle(
+                    `w-[80px] text-center ${Error ? "border-[#F04438]" : ""}`,
+                  )}
                 />
                 {index < 2 && <span className="text-black text-2xl">-</span>}
               </React.Fragment>
             ))}
           </div>
-          {status === "error" && (
-            <p className="text-[#F04438] text-sm">{error}</p>
-          )}
+
+          {Error && <p className="text-[#F04438] text-sm">{error}</p>}
         </div>
       );
 
     case "date":
+      const mxLength = [2, 2, 4];
+      const letterError = /[a-zA-Z]/.test(inputDataValues.join(""));
       return (
         <div className="space-y-1 w-[400px]">
           <div className="flex items-center space-x-2">
@@ -124,7 +120,7 @@ const Inputs: React.FC<InputsProps> = ({
                   <span
                     className={`absolute left-4 top-[10px] text-xs
                       ${disabled ? "text-[#222222]" : "text-[#222222]"}
-                      ${status === "error" ? "text-[#F04438]" : ""}
+                      
                     `}
                   >
                     {labelText}
@@ -137,7 +133,10 @@ const Inputs: React.FC<InputsProps> = ({
                       const change = e.target.value.replace(/[^0-9]/g, "");
                       handleInputDataChange(index, change);
                     }}
-                    className={`${getBaseStyle("w-full pt-5 px-4 ")}`}
+                    className={getBaseStyle(
+                      `w-[80px] pt-4 px-4 ${letterError ? "border-[#F04438]" : ""}`,
+                    )}
+                    maxLength={mxLength[index]}
                     placeholder=" "
                   />
                 </label>
@@ -146,9 +145,7 @@ const Inputs: React.FC<InputsProps> = ({
             ))}
           </div>
 
-          {status === "error" && (
-            <p className="text-[#F04438] text-sm">{error}</p>
-          )}
+          {letterError && <p className="text-[#F04438] text-sm">{error}</p>}
         </div>
       );
 
