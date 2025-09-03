@@ -10,7 +10,7 @@ interface SmallTabsProps {
   variant: Variant;
   status?: Status;
   children: string;
-  onClick?: () => void;
+  onClick: () => void;
   className?: string;
   disabled?: boolean;
   icon1?: React.ReactNode;

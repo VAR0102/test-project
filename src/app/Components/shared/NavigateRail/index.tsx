@@ -1,6 +1,5 @@
 "use client";
-
-import React from "react";
+import React, {ReactNode} from "react"
 import Link from "next/link";
 import DropArrowIcon from "@/app/assets/icons/DropArrowIcon";
 import VerifIcon from "@/app/assets/icons/VerifIcon";
@@ -8,14 +7,14 @@ import VerifIcon from "@/app/assets/icons/VerifIcon";
 type Variant = "single" | "group";
 
 interface dropdownItem {
-  icon: React.ReactNode;
+  icon: ReactNode;
   label: string;
   href: string;
 }
 
 interface NavigateRailProps {
   variant: Variant;
-  onClick?: () => void;
+  onClick: () => void;
   className?: string;
   children?: string;
   disabled?: boolean;
@@ -69,7 +68,7 @@ const NavigateRail = ({
       </div>
     );
   }
-
+  
   if (variant === "single") {
     return (
       <Link href="/verification" className={combinedClassName}>

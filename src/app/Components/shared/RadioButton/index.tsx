@@ -7,7 +7,7 @@ type Variant = "single" | "group";
 interface RadioButtonsProps {
   variant: Variant;
   children: React.ReactNode;
-  onClick?: () => void;
+  onClick: () => void;
   className?: string;
 }
 

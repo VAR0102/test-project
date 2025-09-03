@@ -1,28 +1,28 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState,ReactNode } from "react";
 
-type Variant = "large" | "small";
+type Size = "large" | "small";
 
 interface DropDownProps {
-  variant: Variant;
+  size: Size;
   label?: string;
   options: string[];
   error?: string;
-  onChange?: (value: string) => void;
-  profileIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+
+  endIcon?: ReactNode;
+  rightIcon?: ReactNode;
   disabled?: boolean;
 }
 
 const DropDown = ({
-  variant,
+  size,
   label = "",
   options,
   error = "",
-  onChange,
+
   disabled = false,
   rightIcon,
-  profileIcon,
+  endIcon,
 }: DropDownProps) => {
   const [selected, setSelected] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ const DropDown = ({
   const handleSelect = (option: string) => {
     setSelected(option);
     setIsOpen(false);
-    onChange?.(option);
+
   };
 
   const baseClass =
@@ -38,21 +38,21 @@ const DropDown = ({
   const smallClass =
     "rounded-[10px] h-[50px] text-[20px] border bg-white px-3  border-[#0000001A] hover:border-[#00000066] pt-6 pr-12 relative outline-none cursor-pointer transition duration-200";
 
-  if (variant === "large") {
-    const isError = !error && selected === "";
+  if (size === "large") {
+
     return (
       <>
         <div className="relative w-[600px]">
           <div
             onClick={() => setIsOpen((open) => !open)}
             className={`${baseClass} 
-     ${isError ? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A] hover:border-[#00000066]"} 
+     ${isOpen? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A] hover:border-[#00000066]"} 
     ${disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""} 
     flex items-center pb-8 justify-between`}
           >
             <span>{selected || label}</span>
             <div className="flex items-center space-x-1">
-              {profileIcon && profileIcon}
+              {endIcon && endIcon}
               {rightIcon && rightIcon}
             </div>
           </div>
@@ -77,15 +77,15 @@ const DropDown = ({
     );
   }
 
-  if (variant === "small") {
+  if (size === "small") {
     return (
       <>
         <div className="relative w-[300px]">
           <div
             onClick={() => setIsOpen((prev) => !prev)}
-            className={`${smallClass} border  ${
-              disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""
-            } flex items-center pb-6 justify-between  `}
+            className={`${smallClass} border  ${disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""}
+              ${isOpen? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A] hover:border-[#00000066]"} 
+              flex items-center pb-6 justify-between  `}
           >
             <span>{selected || label}</span>
             <div className="flex items-center space-x-1 ">

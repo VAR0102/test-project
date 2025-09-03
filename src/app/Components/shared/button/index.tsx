@@ -1,4 +1,4 @@
-import React from "react";
+import React, {ReactNode } from "react";
 
 type Variant =
   | "primaryBig"
@@ -17,11 +17,11 @@ type Variant =
 
 interface ButtonProps {
   variant: Variant;
-  children: React.ReactNode;
+  children: ReactNode;
   onClick?: () => void;
   className?: string;
-  leftIcon?: React.ReactNode;
-  rightIcon?: React.ReactNode;
+  leftIcon?: ReactNode;
+  rightIcon?: ReactNode;
   disabled?: boolean;
 }
 

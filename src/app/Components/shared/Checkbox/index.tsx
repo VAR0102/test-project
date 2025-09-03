@@ -10,29 +10,26 @@ interface CheckboxProps {
   status?: Status;
   onClick?: (index?: number) => void;
   className?: string;
-
+groupItems?:string[];
   children?: React.ReactNode;
   disabled?: boolean;
 }
 
-const solidStyles: Record<
-  Extract<Status, "number" | "check" | "empty">,
-  string
-> = {
+const solidStyles= {
   number: "bg-[#3C5A4B] text-white border-[#0000001A]",
   check: "bg-white text-black border-[#0000001A]",
   empty: "bg-transparent text-black border-[#0000001A]",
 };
 
-const Checkbox: React.FC<CheckboxProps> = ({
+const Checkbox= ({
   variant,
-  status = "",
+  status = " " ,
   onClick,
   className = "",
-
+groupItems = [],
   children,
   disabled = false,
-}) => {
+}:CheckboxProps) => {
   if (variant === "solid") {
     const style = solidStyles[status as "number" | "check" | "empty"];
     const content = status === "check" ? <SignIcon /> : children;

@@ -1,3 +1,7 @@
+"use client"
+import ProfilIcon from "./assets/icons/ProfilIcon";
+import SelectionIcon from "./assets/icons/SelectionIcon";
+import DropDown from "./Components/shared/DropDown";
 
 export default function HomePage() {
   // const groupItems = [
@@ -58,26 +62,30 @@ export default function HomePage() {
       </div> */}
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
-      {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+      
+       <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
       
 <DropDown
-  variant="small"
+  size="small"
   label="Select Name"
   options={["Jino", "Kleymo", "Bogo"]}
   error="Please select an option"
   rightIcon ={<SelectionIcon/>}
+
 />
+
 <DropDown
-  variant="large"
+  size="large"
   label="Select Name"
   options={["Nemra", "Gavra", "Rara"]}
   error="Please select an option"
-  profileIcon={<ProfilIcon/>}
+  endIcon={<ProfilIcon/>}
   rightIcon ={<SelectionIcon/>}
-  
+ 
+
 />
 
- </div> */}
+ </div> 
 
       {/* 
 

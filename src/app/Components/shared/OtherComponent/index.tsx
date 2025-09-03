@@ -1,14 +1,14 @@
 "use client";
 
-import React, { useState } from "react";
 
+import React, {ReactNode,useState} from "react"
 type Variant = "toglle" | "drop";
 
 interface OtherComponentsProps {
   variant: Variant;
   className?: string;
   children?: string;
-  leftIcon?: React.ReactNode;
+  leftIcon?: ReactNode;
   disabled?: boolean;
 }
 const solidStyles = {
