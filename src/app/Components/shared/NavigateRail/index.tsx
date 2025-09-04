@@ -14,7 +14,6 @@ interface dropdownItem {
 
 interface NavigateRailProps {
   variant: Variant;
-  onClick: () => void;
   className?: string;
   children?: string;
   disabled?: boolean;
@@ -29,7 +28,6 @@ const variantStyles = {
 
 const NavigateRail = ({
   variant,
-  onClick,
   className = "",
   children,
   disabled = false,
@@ -42,7 +40,7 @@ const NavigateRail = ({
       <div className="flex flex-col">
         <button
           disabled={disabled}
-          onClick={onClick}
+          
           className="w-[200px] h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer disabled:opacity-20"
         >
           <span className="flex items-center gap-2 font-bold  disabled:opacity-20">
