@@ -1,28 +1,50 @@
-import LeftDirectionIcon from "./assets/icons/LeftDIrectionIcon";
-import StarsIcon from "./assets/icons/StarsIcon";
-import XIcon from "./assets/icons/XIcon";
-import Checkbox from "./Checkbox";
-import DropDown from "./DropDown";
-import Inputs from "./Inputs";
-import LargeButton from "./LargeButtons";
-import LargeTabs from "./LargeTabs";
-import MeidumButtons from "./MediumButtons";
-import Navigate from "./Navigate";
-import NavigateRail from "./NavigateRail";
-import OtherComponent from "./OtherComponent";
-import RadioButtons from "./RadioButton";
-import SearchInput from "./Search";
-import SmallTabs from "./SmallTabs";
+"use client"
+import ProfilIcon from "./assets/icons/ProfilIcon";
+import SelectionIcon from "./assets/icons/SelectionIcon";
+import DropDown from "./Components/shared/DropDown";
 
 export default function HomePage() {
+  // const groupItems = [
+  //     { icon: <HomeIcon />, label: "Household" },
+  //     { icon: <SmileIcon />, label: "Individuals" },
+  //     { icon: <AdderIcon />, label: "Verify Tax ID" },
+  //     { icon: <FileIcon />, label: "Resources" },
+  //   ];
+
+  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
+
+  // const dropdownItems = [
+  //   { icon: <FileIcon2 />, label: "All", href: "/all" },
+  //   { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
+  //   { icon: <CurrencyIcon />, label: "Income", href: "/income" },
+  //   { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
+  //   { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
+  //   { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
+  //   { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
+  //   { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
+  //   { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
+  //   { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
+  //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
+  //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
+  // ];
+
   return (
-    <div className="flex justify-center   pt-20 space-y-4 p-6">
-      {/*<LargeButton variant="PrimarySmall">Text</LargeButton>
-         <LargeButton variant="PrimaryBig">Button Text</LargeButton>
-         <LargeButton variant="SecondaryBig">Add new</LargeButton>
-         <LargeButton variant="SecondaryMedium">Apply Filter</LargeButton>
-         <LargeButton variant="SecondarySmall">Add Filter</LargeButton>
-         <LargeButton variant="Tertiary"> <StarsIcon /></LargeButton> */}
+    <div>
+      {/* <div className="flex flex-col  pt-20 space-y-4 p-6">
+         <Button  variant="primarySmall">Text</Button>
+         <Button rightIcon={<CursorRightIcon/>}  variant="primaryBig">Button Text</Button>
+         <Button leftIcon={<PlusIcon/>} variant="secondaryBig">Add new</Button>
+         <Button  rightIcon={<CursorRightIcon/>} variant="secondaryMedium">Apply Filter</Button>
+         <Button leftIcon="" variant="secondarySmall">Add Filter</Button>
+         <Button variant="tertiary"> <StarsIcon /></Button> 
+         <Button leftIcon={<MediumPlusIcon/>} variant="mediumAdd">Add new client</Button>
+         <Button  rightIcon={<SelectIcon/>}  variant="mediumSelect">Last 30 daysr</Button>
+         <Button  leftIcon={<AdvanceFilter/>} variant="mediumFilter">Advanced Filterr</Button>
+         <Button  leftIcon={<PdfIcon/>}  variant="mediumPdf">Export PDF</Button>
+         <Button  variant="mediumSecondary"> <LeftDirectionIcon/> </Button>
+         <Button   rightIcon={<SelectIcon/>}  variant="mediumTertiarySelect">Group Sources</Button>
+         <Button  variant="mediumTertiaryChose"><XIcon/></Button>
+    </div> */}
 
       {/* 
 <MeidumButtons variant="PrimaryAdd" >Add new client</MeidumButtons>
@@ -33,27 +55,78 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
+      {/* <div className="flex flex-col space-y-10 px-50 pt-50">
+        <Input variant="fields" error="Erros" />
+        <Input variant="text"  />
+        <Input variant="date" /> 
+      </div> */}
+
+      {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
       
-      <Inputs variant="InputData" status="default" />
-      <Inputs variant="InputFields" status="default" />
-      <Inputs variant="InputText" status="default" label="Label" /> 
+       <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+      
+<DropDown
+  size="small"
+  label="Select Name"
+  options={["Jino", "Kleymo", "Bogo"]}
+  error="Please select an option"
+  rightIcon ={<SelectionIcon/>}
 
-      {/* <DropDown variant="DropDownLarge" status="default"></DropDown> 
- <DropDown variant="DropDownSmall" status="default"></DropDown> */}
+/>
 
-      {/* <SearchInput variant="SearchInput" status="default"></SearchInput> */}
+<DropDown
+  size="large"
+  label="Select Name"
+  options={["Nemra", "Gavra", "Rara"]}
+  error="Please select an option"
+  endIcon={<ProfilIcon/>}
+  rightIcon ={<SelectionIcon/>}
+ 
 
-      {/* <Navigate variant="NavigationGroup"> </Navigate> */}
+/>
 
-      {/* <NavigateRail variant="RailSingle">Verification</NavigateRail>
-        <NavigateRail variant="RailGroup"> </NavigateRail>
+ </div> 
 
-       */}
-      {/* <LargeTabs variant="TabsGroup" status="5th" > </LargeTabs> 
-<LargeTabs variant="TabsSingle">Advisorr</LargeTabs>*/}
+      {/* 
 
-      {/* <SmallTabs variant="TabGroup" status="1st">  </SmallTabs>
-      <SmallTabs variant="TabLine"> </SmallTabs> */}
+      <SearchInput 
+      variant="Search"
+      label="Search...."
+      leftIcon ={<SearchIcon/>}
+      rightIcon ={<CommandIcon/>}
+      rightIcon2 ={<SIcon/>}
+       /> */}
+
+      {/* 
+
+      <div className="flex justify-center pt-50">
+      <Navigate variant="single"  ></Navigate>
+       <Navigate variant="group" groupItems={groupItems} />
+      </div>
+ */}
+
+      {/* 
+         <div className=" flex flex-col space-y-10 px-50 pt-50">
+      <NavigateRail variant="single"  > Hover</NavigateRail>
+  <NavigateRail variant="group" dropdownItems={dropdownItems}> </NavigateRail>
+  </div>
+
+      */}
+      {/* 
+     <LargeTabs variant="group" labels={labels} status="1"  />
+<LargeTabs variant="single" >Advisorr</LargeTabs>
+ */}
+
+      {/* 
+     <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
+
+      <SmallTabs variant="group" status="first">  </SmallTabs> 
+      
+      <SmallTabs variant="line"  icon1={<TabsIcon1/>} icon2={<TabsIcon2/>}> </SmallTabs>
+
+
+</div> */}
+
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
 
@@ -62,13 +135,13 @@ export default function HomePage() {
       <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
+      {/* 
+      <RadioButtons variant="single">  </RadioButtons>
+ <RadioButtons variant="group"> Text</RadioButtons> */}
 
-      {/* <RadioButtons variant="RadioSingle">  </RadioButtons>
- <RadioButtons variant="RadioGroup"> Option 1</RadioButtons>
- */}
-      {/* <OtherComponent variant="Drop"></OtherComponent> */}
-      {/* <OtherComponent variant="Toglle" status="off"></OtherComponent> */}
-
+      {/* 
+      <OtherComponent variant="drop"></OtherComponent>
+      <OtherComponent variant="toglle"></OtherComponent> */}
     </div>
   );
 }
