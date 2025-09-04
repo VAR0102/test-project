@@ -17,6 +17,7 @@ import SIcon from "./assets/icons/SIcon";
 import SmoogVerifyIcon from "./assets/icons/SmoogVerifyIcon";
 import TaxToolIcon from "./assets/icons/TaxToolIcon";
 import DropDown from "./Components/shared/DropDown";
+import LargeTab from "./Components/shared/LargeTab";
 import NavigateRail from "./Components/shared/NavigateRail";
 import SearchInput from "./Components/shared/Search";
 
@@ -28,22 +29,22 @@ export default function HomePage() {
   //     { icon: <FileIcon />, label: "Resources" },
   //   ];
 
-  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
+   const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
-  const dropdownItems = [
-    { icon: <FileIcon2 />, label: "All", href: "/all" },
-    { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
-    { icon: <CurrencyIcon />, label: "Income", href: "/income" },
-    { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
-    { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
-    { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
-    { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
-    { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
-    { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
-    { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
-    { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
-    { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
-  ];
+  // const dropdownItems = [
+  //   { icon: <FileIcon2 />, label: "All", href: "/all" },
+  //   { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
+  //   { icon: <CurrencyIcon />, label: "Income", href: "/income" },
+  //   { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
+  //   { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
+  //   { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
+  //   { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
+  //   { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
+  //   { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
+  //   { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
+  //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
+  //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
+  // ];
 
   return (
     <div>
@@ -121,19 +122,19 @@ export default function HomePage() {
       </div>
  */}
 
-      
+{/*       
          <div className=" flex flex-col space-y-10 px-50 pt-50">
       <NavigateRail variant="single"> Hover</NavigateRail>
   <NavigateRail variant="group" dropdownItems={dropdownItems}> </NavigateRail>
   </div>
 
-     
+      */}
 
+      
+      
+     <LargeTab variant="group" labels={labels}   />
+<LargeTab variant="single" >Advisorr</LargeTab>
 
-      {/* 
-     <LargeTabs variant="group" labels={labels} status="1"  />
-<LargeTabs variant="single" >Advisorr</LargeTabs>
- */}
 
       {/* 
      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
