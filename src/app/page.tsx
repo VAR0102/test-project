@@ -1,7 +1,6 @@
 
-import TabsIcon1 from "./assets/icons/TabsIcon1";
-import TabsIcon2 from "./assets/icons/TabsIcon2";
-import SmallTab from "./Components/shared/SmallTab";
+import RadioButton from "./Components/shared/RadioButton";
+
 
 export default function HomePage() {
   // const groupItems = [
@@ -27,10 +26,10 @@ export default function HomePage() {
   //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
   //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
   // ];
-   const items = [
-      { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
-      { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
-    ];
+  //  const items = [
+  //     { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
+  //     { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
+  //   ];
 
 
   return (
@@ -127,7 +126,7 @@ export default function HomePage() {
 <LargeTab variant="single" >Advisorr</LargeTab> */}
 
 
-      
+{/*       
      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
 
       <SmallTab variant="group" items={items} status="second">  </SmallTab> 
@@ -135,7 +134,7 @@ export default function HomePage() {
       <SmallTab variant="line"  iconLeft={<TabsIcon1/>} iconRight={<TabsIcon2/>}> </SmallTab>
 
 
-</div>
+</div> */}
 
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
@@ -145,9 +144,9 @@ export default function HomePage() {
       <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
-      {/* 
-      <RadioButtons variant="single">  </RadioButtons>
- <RadioButtons variant="group"> Text</RadioButtons> */}
+      
+      <RadioButton variant="single">  </RadioButton>
+ <RadioButton variant="group"> Text</RadioButton>
 
       {/* 
       <OtherComponent variant="drop"></OtherComponent>
