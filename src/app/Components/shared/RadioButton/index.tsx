@@ -1,46 +1,40 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 "use client";
-import { useState } from "react";
+import React, { useState, ReactNode } from "react";
 
 type Variant = "single" | "group";
 
 interface RadioButtonsProps {
   variant: Variant;
-  children: React.ReactNode;
-  onClick: () => void;
+  children: ReactNode;
   className?: string;
 }
 
-const RadioButtons = ({
+const RadioButton = ({
   variant,
-  onClick,
   className = "",
   children,
 }: RadioButtonsProps) => {
+
   if (variant === "single") {
     const [active, setActive] = useState(false);
-
     const handleClick = () => {
       setActive(!active);
-
-      if (onClick) {
-        onClick();
-      }
     };
-
-    return (
-      <button
-        onClick={handleClick}
-        className={`relative w-[30px] h-[30px] bg-white border border-[#0000001A] rounded-full flex items-center justify-center ${className}`}
-      >
-        {active && <span className="w-[5px] h-[5px] bg-black rounded-full" />}
-      </button>
-    );
+    if (variant == "single") {
+      return (
+        <button
+          onClick={handleClick}
+          className={`relative w-[30px] h-[30px] bg-white border border-[#0000001A] rounded-full flex items-center justify-center ${className}`}
+        >
+          {active && <span className="w-[5px] h-[5px] bg-black rounded-full" />}
+        </button>
+      );
+    }
   }
 
   if (variant === "group") {
     const [active, setActive] = useState(false);
-
     const handleClick = () => {
       setActive(!active);
     };
@@ -61,4 +55,4 @@ const RadioButtons = ({
   return null;
 };
 
-export default RadioButtons;
+export default RadioButton;
