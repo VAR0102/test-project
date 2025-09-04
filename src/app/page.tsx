@@ -1,4 +1,5 @@
 
+import OtherComponent from "./Components/shared/OtherComponent";
 import RadioButton from "./Components/shared/RadioButton";
 
 
@@ -144,13 +145,14 @@ export default function HomePage() {
       <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
-      
-      <RadioButton variant="single">  </RadioButton>
- <RadioButton variant="group"> Text</RadioButton>
 
-      {/* 
+{/*       
+      <RadioButton variant="single">  </RadioButton>
+ <RadioButton variant="group"> Text</RadioButton> */}
+
+      
       <OtherComponent variant="drop"></OtherComponent>
-      <OtherComponent variant="toglle"></OtherComponent> */}
+      <OtherComponent variant="toglle"></OtherComponent>
     </div>
   );
 }
