@@ -60,7 +60,7 @@ const OtherComponent = ({
               id="fileInput"
               type="file"
               className="hidden"
-              onChange={(e) => console.log(e.target.files)}
+            
             />
 
             <button
