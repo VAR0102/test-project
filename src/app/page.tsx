@@ -1,25 +1,7 @@
-"use client"
-import AccIcon from "./assets/icons/AccIcon";
-import AssetsIcon from "./assets/icons/AssetsIcon";
-import BudgetIcon from "./assets/icons/BudgetIcon";
-import ChatIcon from "./assets/icons/ChatIcon";
-import CommandIcon from "./assets/icons/CommandIcon";
-import CurrencyIcon from "./assets/icons/CurrecnyIcon";
-import FileIcon2 from "./assets/icons/FileIcon2";
-import HeatIcon from "./assets/icons/HeatIcon";
-import LiabilIcon from "./assets/icons/LiabilIcon";
-import MonitorIcon from "./assets/icons/MonitorIcon";
-import NewFileIcon from "./assets/icons/NewFileIcon";
-import ProfilIcon from "./assets/icons/ProfilIcon";
-import SearchIcon from "./assets/icons/SearchIcon";
-import SelectionIcon from "./assets/icons/SelectionIcon";
-import SIcon from "./assets/icons/SIcon";
-import SmoogVerifyIcon from "./assets/icons/SmoogVerifyIcon";
-import TaxToolIcon from "./assets/icons/TaxToolIcon";
-import DropDown from "./Components/shared/DropDown";
-import LargeTab from "./Components/shared/LargeTab";
-import NavigateRail from "./Components/shared/NavigateRail";
-import SearchInput from "./Components/shared/Search";
+
+import TabsIcon1 from "./assets/icons/TabsIcon1";
+import TabsIcon2 from "./assets/icons/TabsIcon2";
+import SmallTab from "./Components/shared/SmallTab";
 
 export default function HomePage() {
   // const groupItems = [
@@ -29,7 +11,7 @@ export default function HomePage() {
   //     { icon: <FileIcon />, label: "Resources" },
   //   ];
 
-   const labels = ["All", "Advisor", "Family", "Households", "Members"];
+  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
   // const dropdownItems = [
   //   { icon: <FileIcon2 />, label: "All", href: "/all" },
@@ -45,9 +27,18 @@ export default function HomePage() {
   //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
   //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
   // ];
+   const items = [
+      { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
+      { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
+    ];
+
 
   return (
+     
     <div>
+
+     
+
       {/* <div className="flex flex-col  pt-20 space-y-4 p-6">
          <Button  variant="primarySmall">Text</Button>
          <Button rightIcon={<CursorRightIcon/>}  variant="primaryBig">Button Text</Button>
@@ -131,20 +122,20 @@ export default function HomePage() {
       */}
 
       
-      
+{/*       
      <LargeTab variant="group" labels={labels}   />
-<LargeTab variant="single" >Advisorr</LargeTab>
+<LargeTab variant="single" >Advisorr</LargeTab> */}
 
 
-      {/* 
+      
      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
 
-      <SmallTabs variant="group" status="first">  </SmallTabs> 
+      <SmallTab variant="group" items={items} status="second">  </SmallTab> 
       
-      <SmallTabs variant="line"  icon1={<TabsIcon1/>} icon2={<TabsIcon2/>}> </SmallTabs>
+      <SmallTab variant="line"  iconLeft={<TabsIcon1/>} iconRight={<TabsIcon2/>}> </SmallTab>
 
 
-</div> */}
+</div>
 
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
