@@ -1,15 +1,21 @@
+
+import AddIcon from "./assets/icons/AddIcon";
+import FileIcon from "./assets/icons/FileIcon";
+import HomeIcon from "./assets/icons/HomeIcon";
 import ProfilIcon from "./assets/icons/ProfilIcon";
 import SelectionIcon from "./assets/icons/SelectionIcon";
+import SmileIcon from "./assets/icons/SmileIcon";
 import DropDown from "./Components/shared/DropDown";
 import Input from "./Components/shared/Input";
+import Navigate from "./Components/shared/Navigate";
 
 export default function HomePage() {
-  // const groupItems = [
-  //     { icon: <HomeIcon />, label: "Household" },
-  //     { icon: <SmileIcon />, label: "Individuals" },
-  //     { icon: <AdderIcon />, label: "Verify Tax ID" },
-  //     { icon: <FileIcon />, label: "Resources" },
-  //   ];
+  const groupItems = [
+      { icon: <HomeIcon />, label: "Household" },
+      { icon: <SmileIcon />, label: "Individuals" },
+      { icon: <AddIcon />, label: "Verify Tax ID" },
+      { icon: <FileIcon />, label: "Resources" },
+    ];
 
   //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
@@ -58,12 +64,12 @@ export default function HomePage() {
 <MeidumButtons variant="TertiarySelect">Group Sources</MeidumButtons>
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
-
+{/* 
       <div className="flex flex-col space-y-10 px-50 pt-50">
         <Input variant="fields" />
         <Input variant="text"  disabled />
         <Input variant="date"  disabled /> 
-      </div>
+      </div> */}
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
 
@@ -98,10 +104,10 @@ export default function HomePage() {
       rightIcon2 ={<SIcon/>}
        /> */}
 
-      {/* <div className="flex justify-center pt-50 bg-red-500">
-      <Navigate variant="single"  ></Navigate>
+      <div className="flex justify-center pt-50 space-x-10">
+      <Navigate variant="single" icon={<HomeIcon/>}></Navigate>
        <Navigate variant="group" groupItems={groupItems} />
-      </div> */}
+      </div>
 
       {/* <div className=" flex flex-col space-y-10 px-50 pt-50">
       <NavigateRail variant="single"> Hover</NavigateRail>

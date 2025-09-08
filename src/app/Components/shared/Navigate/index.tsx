@@ -1,4 +1,3 @@
-import HomeIcon from "@/app/assets/icons/HomeIcon";
 import React, { ReactNode } from "react";
 
 type Variant = "single" | "group";
@@ -15,12 +14,14 @@ interface NavigateProps {
   children?: string;
   groupItems?: GroupItem[];
   disabled?: boolean;
+  icon?: ReactNode;
 }
 
 const variantStyles = {
   single:
-    "w-[150px] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
-  group: "",
+    "w-[12%] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
+  group:
+    "h-[90px] rounded-[8px] text-[16px] cursor-pointer  hover:bg-[#FCFDFE] active:bg-[#222222] active:text-[#FFFFFF]",
 };
 
 const Navigate = ({
@@ -30,24 +31,20 @@ const Navigate = ({
   groupItems = [],
   children = "Household",
   disabled = false,
+  icon,
 }: NavigateProps) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`;
 
   if (variant === "group") {
     return (
-      <div className="grid grid-cols-2 w-70 ">
+      <div className="grid grid-cols-2 w-[25%] gap-2">
         {groupItems.map((item, index) => {
-          const isFourth = index === 3;
-          const buttonClass = isFourth
-            ? "bg-[#222222] text-white"
-            : "bg-[#FFFFFF] text-[#222222] ";
-
           return (
             <button
               key={index}
               onClick={onClick}
               disabled={disabled}
-              className={`w-[150px] h-[90px] rounded-[8px] text-[16px] cursor-pointer ${buttonClass}`}
+              className={`${combinedClassName} `}
             >
               <span className="flex items-center flex-col gap-2">
                 {item.icon}
@@ -67,7 +64,7 @@ const Navigate = ({
         className={`group ${combinedClassName}`}
       >
         <span className="flex items-center flex-col gap-2 text-center">
-          <HomeIcon className="stroke-black group-active:stroke-white" />
+          {icon && icon}
           <span className="text-black group-active:text-white text-[16px]">
             {children}
           </span>
