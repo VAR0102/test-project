@@ -1,5 +1,5 @@
-import HomeIcon from "@/app/assets/icons/HomeIcon"; 
-import React, {ReactNode} from "react"
+import HomeIcon from "@/app/assets/icons/HomeIcon";
+import React, { ReactNode } from "react";
 
 type Variant = "single" | "group";
 
@@ -17,11 +17,11 @@ interface NavigateProps {
   disabled?: boolean;
 }
 
-
 const variantStyles = {
   single:
     "w-[150px] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
-  group: "",};
+  group: "",
+};
 
 const Navigate = ({
   variant,

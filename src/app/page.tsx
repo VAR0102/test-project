@@ -1,9 +1,7 @@
 import ProfilIcon from "./assets/icons/ProfilIcon";
 import SelectionIcon from "./assets/icons/SelectionIcon";
 import DropDown from "./Components/shared/DropDown";
-
-
-
+import Input from "./Components/shared/Input";
 
 export default function HomePage() {
   // const groupItems = [
@@ -34,13 +32,8 @@ export default function HomePage() {
   //     { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
   //   ];
 
-
   return (
-     
     <div>
-
-     
-
       {/* <div className="flex flex-col  pt-20 space-y-4 p-6">
          <Button  variant="primarySmall">Text</Button>
          <Button rightIcon={<CursorRightIcon/>}  variant="primaryBig">Button Text</Button>
@@ -67,39 +60,35 @@ export default function HomePage() {
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
       {/* <div className="flex flex-col space-y-10 px-50 pt-50">
-        <Input variant="fields" error="Erros" />
+        <Input variant="fields"/>
         <Input variant="text"  />
         <Input variant="date" /> 
       </div> */}
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
-      
-       <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
-      
-<DropDown
-  size="small"
-  label="Select Name"
-  options={["Jino", "Kleymo", "Bogo"]}
-  error="Please select an option"
-  rightIcon ={<SelectionIcon/>}
-  
 
-/>
+      <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+        <DropDown
+          size="small"
+          label="Select Name"
+          options={["Jino", "Kleymo", "Bogo"]}
+          error="Please select an option"
+          rightIcon={<SelectionIcon />}
+          
+        />
 
-<DropDown
-  size="large"
-  label="Select Name"
-  options={["Nemra", "Gavra", "Rara"]}
-  error="Please select an option"
-  endIcon={<ProfilIcon/>}
-  rightIcon ={<SelectionIcon/>}
- 
+        <DropDown
+          size="large"
+          label="Select Name"
+          options={["Nemra", "Gavra", "Rara"]}
+          error="Please select an option"
+          endIcon={<ProfilIcon />}
+          rightIcon={<SelectionIcon />}
+          disabled
+        />
+      </div>
 
-/>
-
- </div> 
-
-{/*       
+      {/*       
 
       <SearchInput 
       variant="Search"
@@ -109,28 +98,21 @@ export default function HomePage() {
       rightIcon2 ={<SIcon/>}
        /> */}
 
-      
       {/* <div className="flex justify-center pt-50 bg-red-500">
       <Navigate variant="single"  ></Navigate>
        <Navigate variant="group" groupItems={groupItems} />
       </div> */}
 
-
-      
-         {/* <div className=" flex flex-col space-y-10 px-50 pt-50">
+      {/* <div className=" flex flex-col space-y-10 px-50 pt-50">
       <NavigateRail variant="single"> Hover</NavigateRail>
   <NavigateRail variant="group" dropdownItems={dropdownItems}> </NavigateRail>
   </div> */}
 
-     
-
-      
-{/*       
+      {/*       
      <LargeTab variant="group" labels={labels}   />
 <LargeTab variant="single" >Advisorr</LargeTab> */}
 
-
-{/*       
+      {/*       
      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
 
       <SmallTab variant="group" items={items} status="second">  </SmallTab> 
@@ -149,11 +131,10 @@ export default function HomePage() {
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
 
-{/*       
+      {/*       
       <RadioButton variant="single">  </RadioButton>
  <RadioButton variant="group"> Text</RadioButton> */}
 
-      
       {/* <OtherComponent leftIcon={<UploadIcon/>} variant="drop" ></OtherComponent>
       <OtherComponent variant="toglle" ></OtherComponent> */}
     </div>

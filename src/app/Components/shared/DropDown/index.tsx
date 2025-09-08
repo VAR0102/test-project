@@ -47,23 +47,22 @@ const DropDown = ({
   }, [isOpen, selected]);
 
   const styles =
-    "rounded-[10px] h-[50px] text-[20px] border bg-white px-3 border-[#0000001A] hover:border-[#00000066] pt-6 pr-12 relative outline-none cursor-pointer transition duration-200";
-
-  const baseClass = `${styles}`;
-  const smallClass = `${styles}`;
+    "rounded-[10px] h-[50px] text-[20px]  bg-white px-3  pt-6 pr-12 relative outline-none cursor-pointer transition duration-200";
 
   if (size === "large") {
     return (
       <div className="relative w-[600px]" onClick={(e) => e.stopPropagation()}>
         <div
-          onClick={() => setIsOpen((prev) => !prev)}
-          className={`${baseClass} ${
+          onClick={() => {
+            if (!disabled) setIsOpen((prev) => !prev);
+          }}
+          className={`${styles} ${
             err
               ? "border-[#F04438] hover:border-[#F04438]"
               : "border-[#0000001A] hover:border-[#00000066]"
-          } ${disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]" : ""} relative rounded-[10px] h-[60px] border flex items-center`}
+          } ${disabled ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3] opacity-70" : ""} relative rounded-[10px] h-[60px] border flex items-center`}
         >
-          <span className=" pb-6">{selected || label}</span>
+          <span className="pb-6">{selected || label}</span>
 
           <div className="absolute right-3 top-1/2 -translate-y-1/2 flex space-x-1">
             {endIcon}
@@ -98,20 +97,22 @@ const DropDown = ({
     return (
       <div className="relative w-[300px]" onClick={(e) => e.stopPropagation()}>
         <div
-          onClick={() => setIsOpen((prev) => !prev)}
-          className={`${smallClass} ${
+          onClick={() => {
+            if (!disabled) setIsOpen((prev) => !prev);
+          }}
+          className={`${styles} ${
             err
               ? "border-[#F04438]"
               : "border-[#0000001A] hover:border-[#00000066]"
           } ${
             disabled
-              ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3] border-[#B3B3B3] opacity-20"
+              ? "cursor-not-allowed bg-[#F9F9F9] text-[#B3B3B3]  opacity-70"
               : ""
-          } relative rounded-[10px] h-[50px] border flex items-center px-3 `}
+          } relative rounded-[10px] h-[50px] border flex items-center px-3`}
         >
           <span className="text-left pb-6">{selected || label}</span>
 
-          <div className="absolute right-3  bottom-3 ">{rightIcon}</div>
+          <div className="absolute right-3  bottom-3">{rightIcon}</div>
         </div>
 
         {isOpen && (
