@@ -15,7 +15,6 @@ const RadioButton = ({
   className = "",
   children,
 }: RadioButtonsProps) => {
-
   if (variant === "single") {
     const [active, setActive] = useState(false);
     const handleClick = () => {

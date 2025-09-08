@@ -1,7 +1,6 @@
 "use client";
 
-
-import React, {ReactNode,useState} from "react"
+import React, { ReactNode, useState } from "react";
 type Variant = "toglle" | "drop";
 
 interface OtherComponentsProps {
@@ -56,12 +55,7 @@ const OtherComponent = ({
             <p className="flex text-[#000000]">Drop pdf or image here</p>
             <span className="ml-4 text-[#000000]">or</span>
 
-            <input
-              id="fileInput"
-              type="file"
-              className="hidden"
-            
-            />
+            <input id="fileInput" type="file" className="hidden" />
 
             <button
               onClick={() => document.getElementById("fileInput")?.click()}

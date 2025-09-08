@@ -1,5 +1,5 @@
-import HomeIcon from "@/app/assets/icons/HomeIcon"; 
-import React, {ReactNode} from "react"
+import HomeIcon from "@/app/assets/icons/HomeIcon";
+import React, { ReactNode } from "react";
 
 type Variant = "single" | "group";
 
@@ -10,18 +10,18 @@ interface GroupItem {
 
 interface NavigateProps {
   variant: Variant;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   children?: string;
   groupItems?: GroupItem[];
   disabled?: boolean;
 }
 
-
 const variantStyles = {
   single:
     "w-[150px] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
-  group: "",};
+  group: "",
+};
 
 const Navigate = ({
   variant,
@@ -31,11 +31,11 @@ const Navigate = ({
   children = "Household",
   disabled = false,
 }: NavigateProps) => {
-  const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
+  const combinedClassName = `${variantStyles[variant]} ${className}`;
 
   if (variant === "group") {
     return (
-      <div className="grid grid-cols-2 w-70">
+      <div className="grid grid-cols-2 w-70 ">
         {groupItems.map((item, index) => {
           const isFourth = index === 3;
           const buttonClass = isFourth

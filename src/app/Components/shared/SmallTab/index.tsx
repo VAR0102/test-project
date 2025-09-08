@@ -40,12 +40,11 @@ const SmallTab = ({
     return (
       <div className="flex flex-row gap-4 ">
         <button
-          className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed disable:text-[#000000] disabled:pointer-events-none  disable:border-[#0000001A] disabled:opacity-50
+          className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed  disabled:pointer-events-none  disable:border-[#0000001A] disabled:opacity-50
               text-black  ${className}`}
           disabled={disabled}
         >
           <div className="flex justify-center">{iconLeft && iconLeft}</div>
-
           {children}
         </button>
 

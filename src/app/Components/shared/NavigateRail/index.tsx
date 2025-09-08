@@ -1,5 +1,5 @@
 "use client";
-import React, {ReactNode} from "react"
+import React, { ReactNode } from "react";
 import Link from "next/link";
 import DropArrowIcon from "@/app/assets/icons/DropArrowIcon";
 import VerifIcon from "@/app/assets/icons/VerifIcon";
@@ -33,14 +33,13 @@ const NavigateRail = ({
   disabled = false,
   dropdownItems = [],
 }: NavigateRailProps) => {
-  const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
+  const combinedClassName = `${variantStyles[variant]} ${className}`;
 
   if (variant === "group") {
     return (
       <div className="flex flex-col">
         <button
           disabled={disabled}
-          
           className="w-[200px] h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer disabled:opacity-20"
         >
           <span className="flex items-center gap-2 font-bold  disabled:opacity-20">
@@ -66,7 +65,7 @@ const NavigateRail = ({
       </div>
     );
   }
-  
+
   if (variant === "single") {
     return (
       <Link href="/verification" className={combinedClassName}>

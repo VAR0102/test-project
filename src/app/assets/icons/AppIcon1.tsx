@@ -1,4 +1,4 @@
-const TabsIcon1 = ({
+const AppIcon = ({
   width = 18,
   height = 18,
   className = "",
@@ -40,4 +40,4 @@ const TabsIcon1 = ({
   );
 };
 
-export default TabsIcon1;
+export default AppIcon;
