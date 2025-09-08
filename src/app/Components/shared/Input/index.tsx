@@ -12,16 +12,8 @@ interface InputsProps {
   onChange?: (index: number, value: string) => void;
 }
 
-const statusStyle = {
-  default: "border border-[#0000001A]",
-  error: "border border-[#F14922] text-black",
-  disabled:
-    "border border-[#0000001A] text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed",
-};
-
-const Inputs = ({
+const Input = ({
   variant,
-
   label = "Label",
   error = "Text",
   disabled = false,
@@ -29,8 +21,8 @@ const Inputs = ({
 }: InputsProps) => {
   const getBaseStyle = (custom?: string) =>
     `rounded-[10px] h-[70px] text-[20px] border border-[#0000001A] 
-     hover:border hover:border-[#00000066] active:border active:border-[#00000066]  
-     bg-white outline-none transition duration-300  ${statusStyle} ${custom ?? ""}`;
+     active:border active:border-[#00000066]  
+     bg-white outline-none transition duration-300  ${custom ?? ""}`;
 
   const [inputValue, setInputValue] = useState("");
   const [inputDataValues, setInputDataValues] = useState<string[]>([
@@ -38,10 +30,6 @@ const Inputs = ({
     "",
     "",
   ]);
-
-  const handleChange = (index: number, value: string) => {
-    if (onChange) onChange(index, value);
-  };
 
   const handleInputDataChange = (index: number, value: string) => {
     const newValues = [...inputDataValues];
@@ -57,7 +45,7 @@ const Inputs = ({
       return (
         <div className="w-[600px]">
           <label
-            className={`flex flex-col px-3.5 pt-2 space-y-1 pb-1 rounded-[10px] border hover:border-[#00000066]
+            className={`flex flex-col px-4 pt-2 space-y-1 pb-1 rounded-[10px] border hover:border-[#00000066]
         ${disabled ? "text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed" : "text-[#222222] bg-white"}
         ${isError ? "border-[#F04438] hover:border-[#F04438]" : "border-[#0000001A]"}`}
           >
@@ -66,9 +54,7 @@ const Inputs = ({
               disabled={disabled}
               value={inputValue}
               onChange={(e) => {
-                const val = e.target.value;
-                setInputValue(val);
-                handleChange(0, val);
+                setInputValue(e.target.value);
               }}
               className="outline-none text-[20px] bg-transparent"
             />
@@ -96,7 +82,8 @@ const Inputs = ({
                   onChange={(e) => handleInputDataChange(index, e.target.value)}
                   maxLength={maximumLengths[index]}
                   className={getBaseStyle(
-                    `w-[80px] text-center ${Error ? "border-[#F04438]" : ""}`,
+                    `w-full text-center ${Error ? "border-[#F04438]" : "hover:border-[#00000066]"}
+                    ${disabled ? "text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed" : "text-[#222222] bg-white"}`
                   )}
                 />
                 {index < 2 && <span className="text-black text-2xl">-</span>}
@@ -120,7 +107,6 @@ const Inputs = ({
                   <span
                     className={`absolute left-4 top-[10px] text-xs
                       ${disabled ? "text-[#222222]" : "text-[#222222]"}
-                      
                     `}
                   >
                     {labelText}
@@ -130,11 +116,12 @@ const Inputs = ({
                     disabled={disabled}
                     value={inputDataValues[index] || ""}
                     onChange={(e) => {
-                      const change = e.target.value.replace(/[^0-9]/g, "");
+                      const change = e.target.value;
                       handleInputDataChange(index, change);
                     }}
                     className={getBaseStyle(
-                      `w-[80px] pt-4 px-4 ${letterError ? "border-[#F04438]" : ""}`,
+                      `w-full pt-4 px-4  ${letterError ? "border-[#F04438]" : "hover:border-[#00000066]"}
+                    ${disabled ? "text-[#B3B3B3] bg-[#F9F9F9] cursor-not-allowed" : "text-[#222222] bg-white"}`
                     )}
                     maxLength={mxLength[index]}
                     placeholder=" "
@@ -144,7 +131,6 @@ const Inputs = ({
               </React.Fragment>
             ))}
           </div>
-
           {letterError && <p className="text-[#F04438] text-sm">{error}</p>}
         </div>
       );
@@ -154,4 +140,4 @@ const Inputs = ({
   }
 };
 
-export default Inputs;
+export default Input;

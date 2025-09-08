@@ -59,15 +59,15 @@ export default function HomePage() {
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
 
-      {/* <div className="flex flex-col space-y-10 px-50 pt-50">
-        <Input variant="fields"/>
-        <Input variant="text"  />
-        <Input variant="date" /> 
-      </div> */}
+      <div className="flex flex-col space-y-10 px-50 pt-50">
+        <Input variant="fields" />
+        <Input variant="text"  disabled />
+        <Input variant="date"  disabled /> 
+      </div>
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
 
-      <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+      {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
         <DropDown
           size="small"
           label="Select Name"
@@ -86,7 +86,7 @@ export default function HomePage() {
           rightIcon={<SelectionIcon />}
           disabled
         />
-      </div>
+      </div> */}
 
       {/*       
 
