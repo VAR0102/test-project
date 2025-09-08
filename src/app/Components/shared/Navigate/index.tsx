@@ -10,7 +10,7 @@ interface GroupItem {
 
 interface NavigateProps {
   variant: Variant;
-  onClick: () => void;
+  onClick?: () => void;
   className?: string;
   children?: string;
   groupItems?: GroupItem[];
@@ -31,11 +31,11 @@ const Navigate = ({
   children = "Household",
   disabled = false,
 }: NavigateProps) => {
-  const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
+  const combinedClassName = `${variantStyles[variant]} ${className}`;
 
   if (variant === "group") {
     return (
-      <div className="grid grid-cols-2 w-70">
+      <div className="grid grid-cols-2 w-70 ">
         {groupItems.map((item, index) => {
           const isFourth = index === 3;
           const buttonClass = isFourth

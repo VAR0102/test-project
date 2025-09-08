@@ -4,7 +4,7 @@ import React from "react";
 
 type Variant = "single" | "group";
 
-interface LargeTabsProps {
+interface LargeTabProps {
   variant: Variant;
   children?: string;
   className?: string;
@@ -18,7 +18,7 @@ const LargeTab = ({
   className = "",
   disabled = false,
   labels = [],
-}: LargeTabsProps) => {
+}: LargeTabProps) => {
   if (variant === "single") {
     return (
       <button
@@ -42,7 +42,6 @@ const LargeTab = ({
               key={index}
               disabled={disabled}
               className={`
-                
                 w-[100px] h-[50px] rounded-[12px] border border-[#0000001A] text-black 
           bg-[#FFFFFF03] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-white
           disabled:text-[#00000080] disabled:border-[#0000001A] disabled:cursor-not-allowed disabled:bg-[#FFFFFF] 

@@ -48,6 +48,7 @@ const Inputs = ({
     newValues[index] = value;
     setInputDataValues(newValues);
     if (onChange) onChange(index, value);
+    
   };
 
   switch (variant) {

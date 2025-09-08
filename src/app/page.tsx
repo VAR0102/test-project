@@ -1,6 +1,8 @@
+import ProfilIcon from "./assets/icons/ProfilIcon";
+import SelectionIcon from "./assets/icons/SelectionIcon";
+import DropDown from "./Components/shared/DropDown";
 
-import OtherComponent from "./Components/shared/OtherComponent";
-import RadioButton from "./Components/shared/RadioButton";
+
 
 
 export default function HomePage() {
@@ -72,7 +74,7 @@ export default function HomePage() {
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
       
-       {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+       <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
       
 <DropDown
   size="small"
@@ -80,6 +82,7 @@ export default function HomePage() {
   options={["Jino", "Kleymo", "Bogo"]}
   error="Please select an option"
   rightIcon ={<SelectionIcon/>}
+  
 
 />
 
@@ -94,7 +97,7 @@ export default function HomePage() {
 
 />
 
- </div>  */}
+ </div> 
 
 {/*       
 
@@ -106,20 +109,20 @@ export default function HomePage() {
       rightIcon2 ={<SIcon/>}
        /> */}
 
-      {/*
-      <div className="flex justify-center pt-50">
+      
+      {/* <div className="flex justify-center pt-50 bg-red-500">
       <Navigate variant="single"  ></Navigate>
        <Navigate variant="group" groupItems={groupItems} />
-      </div>
- */}
+      </div> */}
 
-{/*       
-         <div className=" flex flex-col space-y-10 px-50 pt-50">
+
+      
+         {/* <div className=" flex flex-col space-y-10 px-50 pt-50">
       <NavigateRail variant="single"> Hover</NavigateRail>
   <NavigateRail variant="group" dropdownItems={dropdownItems}> </NavigateRail>
-  </div>
+  </div> */}
 
-      */}
+     
 
       
 {/*       
@@ -151,8 +154,8 @@ export default function HomePage() {
  <RadioButton variant="group"> Text</RadioButton> */}
 
       
-      <OtherComponent variant="drop"></OtherComponent>
-      <OtherComponent variant="toglle"></OtherComponent>
+      {/* <OtherComponent leftIcon={<UploadIcon/>} variant="drop" ></OtherComponent>
+      <OtherComponent variant="toglle" ></OtherComponent> */}
     </div>
   );
 }

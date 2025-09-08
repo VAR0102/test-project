@@ -1,4 +1,4 @@
-const TabsIcon2 = ({
+const BranchIcon = ({
   width = 18,
   height = 18,
   className = "",
@@ -40,4 +40,4 @@ const TabsIcon2 = ({
   );
 };
 
-export default TabsIcon2;
+export default BranchIcon;

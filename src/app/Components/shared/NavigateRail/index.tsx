@@ -33,7 +33,7 @@ const NavigateRail = ({
   disabled = false,
   dropdownItems = [],
 }: NavigateRailProps) => {
-  const combinedClassName = `${variantStyles[variant]} ${className}`.trim();
+  const combinedClassName = `${variantStyles[variant]} ${className}`
 
   if (variant === "group") {
     return (
@@ -71,7 +71,7 @@ const NavigateRail = ({
     return (
       <Link href="/verification" className={combinedClassName}>
         <span className="flex items-center flex-row gap-2">
-          <VerifIcon />
+          <VerifIcon/>
           {children}
         </span>
       </Link>
