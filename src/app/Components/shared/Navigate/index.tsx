@@ -19,9 +19,9 @@ interface NavigateProps {
 
 const variantStyles = {
   single:
-    "w-[12%] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
+    "w-[12%] h-[90px] bg-[#FFFFFF] disabled:bg-[#E0E0E0] disabled:cursor-not-allowed disabled:opacity-70  hover:bg-[#FCFDFE] text-[16px] text-[#222222] rounded-[8px] active:bg-[#222222] active:text-[#FFFFFF] cursor-pointer",
   group:
-    "h-[90px] rounded-[8px] text-[16px] cursor-pointer  hover:bg-[#FCFDFE] active:bg-[#222222] active:text-[#FFFFFF]",
+    "h-[90px] rounded-[8px] text-[16px] cursor-pointer disabled:bg-[#E0E0E0] disabled:cursor-not-allowed disabled:opacity-70 hover:bg-[#FCFDFE] active:bg-[#222222] active:text-[#FFFFFF]",
 };
 
 const Navigate = ({
