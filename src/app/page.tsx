@@ -25,6 +25,7 @@ import Input from "./Components/shared/Input";
 import Navigate from "./Components/shared/Navigate";
 import NavigateRail from "./Components/shared/NavigateRail";
 import SmallTab from "./Components/shared/SmallTab";
+import Togle from "./Components/shared/Togle";
 
 export default function HomePage() {
   // const groupItems = [
@@ -136,16 +137,16 @@ export default function HomePage() {
       
      <LargeTab variant="group" labels={labels}   />
 <LargeTab variant="single" >Advisorr</LargeTab> */}
-
+{/* 
       <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
-        <SmallTab variant="group" items={items}></SmallTab>
+        <SmallTab variant="group" items={items} disabled></SmallTab>
 
         <SmallTab
           variant="line"
           icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}
         />
-      </div>
-
+      </div> */}
+<Togle />
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
 
