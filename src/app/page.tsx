@@ -1,38 +1,53 @@
 
+import AccIcon from "./assets/icons/AccIcon";
 import AddIcon from "./assets/icons/AddIcon";
+import AssetsIcon from "./assets/icons/AssetsIcon";
+import BudgetIcon from "./assets/icons/BudgetIcon";
+import ChatIcon from "./assets/icons/ChatIcon";
+import CurrencyIcon from "./assets/icons/CurrecnyIcon";
+import DropArrowIcon from "./assets/icons/DropArrowIcon";
 import FileIcon from "./assets/icons/FileIcon";
+import FileIcon2 from "./assets/icons/FileIcon2";
+import HeatIcon from "./assets/icons/HeatIcon";
 import HomeIcon from "./assets/icons/HomeIcon";
+import LiabilIcon from "./assets/icons/LiabilIcon";
+import MonitorIcon from "./assets/icons/MonitorIcon";
+import NewFileIcon from "./assets/icons/NewFileIcon";
 import ProfilIcon from "./assets/icons/ProfilIcon";
 import SelectionIcon from "./assets/icons/SelectionIcon";
 import SmileIcon from "./assets/icons/SmileIcon";
+import SmoogVerifyIcon from "./assets/icons/SmoogVerifyIcon";
+import TaxToolIcon from "./assets/icons/TaxToolIcon";
+import VerifIcon from "./assets/icons/VerifIcon";
 import DropDown from "./Components/shared/DropDown";
 import Input from "./Components/shared/Input";
 import Navigate from "./Components/shared/Navigate";
+import NavigateRail from "./Components/shared/NavigateRail";
 
 export default function HomePage() {
-  const groupItems = [
-      { icon: <HomeIcon />, label: "Household" },
-      { icon: <SmileIcon />, label: "Individuals" },
-      { icon: <AddIcon />, label: "Verify Tax ID" },
-      { icon: <FileIcon />, label: "Resources" },
-    ];
+  // const groupItems = [
+  //     { icon: <HomeIcon />, label: "Household" },
+  //     { icon: <SmileIcon />, label: "Individuals" },
+  //     { icon: <AddIcon />, label: "Verify Tax ID" },
+  //     { icon: <FileIcon />, label: "Resources" },
+  //   ];
 
   //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
-  // const dropdownItems = [
-  //   { icon: <FileIcon2 />, label: "All", href: "/all" },
-  //   { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
-  //   { icon: <CurrencyIcon />, label: "Income", href: "/income" },
-  //   { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
-  //   { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
-  //   { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
-  //   { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
-  //   { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
-  //   { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
-  //   { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
-  //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
-  //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
-  // ];
+  const dropdownItems = [
+    { icon: <FileIcon2 />, label: "All", href: "/all" },
+    { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
+    { icon: <CurrencyIcon />, label: "Income", href: "/income" },
+    { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
+    { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
+    { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
+    { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
+    { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
+    { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
+    { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
+    { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
+    { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
+  ];
   //  const items = [
   //     { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
   //     { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
@@ -103,16 +118,16 @@ export default function HomePage() {
       rightIcon ={<CommandIcon/>}
       rightIcon2 ={<SIcon/>}
        /> */}
-
+{/* 
       <div className="flex justify-center pt-50 space-x-10">
-      <Navigate variant="single" icon={<HomeIcon/>}></Navigate>
-       <Navigate variant="group" groupItems={groupItems} />
-      </div>
+      <Navigate variant="single" icon={<HomeIcon/>} disabled></Navigate>
+       <Navigate variant="group" groupItems={groupItems}  disabled/>
+      </div> */}
 
-      {/* <div className=" flex flex-col space-y-10 px-50 pt-50">
-      <NavigateRail variant="single"> Hover</NavigateRail>
-  <NavigateRail variant="group" dropdownItems={dropdownItems}> </NavigateRail>
-  </div> */}
+      <div className=" flex flex-col space-y-10 px-50 pt-50">
+      <NavigateRail variant="single" icon={<VerifIcon/>}> Verification</NavigateRail>
+  <NavigateRail variant="group" dropdownItems={dropdownItems} icon={<DropArrowIcon/>}> </NavigateRail>
+  </div>
 
       {/*       
      <LargeTab variant="group" labels={labels}   />
