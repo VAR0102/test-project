@@ -149,7 +149,7 @@ export default function HomePage() {
       </div> */}
 {/* <Togle disabled/> */}
 
-<Drop/>
+{/* <Drop/> */}
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
 
