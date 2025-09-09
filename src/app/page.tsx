@@ -26,6 +26,7 @@ import Input from "./Components/shared/Input";
 import Navigate from "./Components/shared/Navigate";
 import NavigateRail from "./Components/shared/NavigateRail";
 import SmallTab from "./Components/shared/SmallTab";
+import Tab from "./Components/shared/Tab";
 import Togle from "./Components/shared/Togle";
 
 export default function HomePage() {
@@ -36,7 +37,7 @@ export default function HomePage() {
   //     { icon: <FileIcon />, label: "Resources" },
   //   ];
 
-  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
+   const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
   // const dropdownItems = [
   //   { icon: <FileIcon2 />, label: "All", href: "/all" },
@@ -158,6 +159,11 @@ export default function HomePage() {
       <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
+
+<Tab variant="line" icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}></Tab>
+<Tab variant="stuck" items={items}></Tab>
+<Tab variant="single">Adviser</Tab>
+<Tab variant="group" labels={labels}></Tab>
 
       {/*       
       <RadioButton variant="single">  </RadioButton>
