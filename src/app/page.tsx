@@ -1,7 +1,8 @@
-
 import AccIcon from "./assets/icons/AccIcon";
 import AddIcon from "./assets/icons/AddIcon";
+import AppIcon from "./assets/icons/AppIcon1";
 import AssetsIcon from "./assets/icons/AssetsIcon";
+import BranchIcon from "./assets/icons/BranchIcon2";
 import BudgetIcon from "./assets/icons/BudgetIcon";
 import ChatIcon from "./assets/icons/ChatIcon";
 import CurrencyIcon from "./assets/icons/CurrecnyIcon";
@@ -23,6 +24,7 @@ import DropDown from "./Components/shared/DropDown";
 import Input from "./Components/shared/Input";
 import Navigate from "./Components/shared/Navigate";
 import NavigateRail from "./Components/shared/NavigateRail";
+import SmallTab from "./Components/shared/SmallTab";
 
 export default function HomePage() {
   // const groupItems = [
@@ -34,24 +36,24 @@ export default function HomePage() {
 
   //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
-  const dropdownItems = [
-    { icon: <FileIcon2 />, label: "All", href: "/all" },
-    { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
-    { icon: <CurrencyIcon />, label: "Income", href: "/income" },
-    { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
-    { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
-    { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
-    { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
-    { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
-    { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
-    { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
-    { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
-    { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
+  // const dropdownItems = [
+  //   { icon: <FileIcon2 />, label: "All", href: "/all" },
+  //   { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
+  //   { icon: <CurrencyIcon />, label: "Income", href: "/income" },
+  //   { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
+  //   { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
+  //   { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
+  //   { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
+  //   { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
+  //   { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
+  //   { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
+  //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
+  //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
+  // ];
+  const items = [
+    { icon: <AppIcon />, rounded: "rounded-l-[12px] " },
+    { icon: <BranchIcon />, rounded: "rounded-r-[12px]" },
   ];
-  //  const items = [
-  //     { icon: <TabsIcon1 />, rounded: "rounded-l-[12px] " },
-  //     { icon: <TabsIcon2 />, rounded: "rounded-r-[12px]" },
-  //   ];
 
   return (
     <div>
@@ -79,7 +81,7 @@ export default function HomePage() {
 <MeidumButtons variant="TertiarySelect">Group Sources</MeidumButtons>
 <MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
 <MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
-{/* 
+      {/* 
       <div className="flex flex-col space-y-10 px-50 pt-50">
         <Input variant="fields" />
         <Input variant="text"  disabled />
@@ -118,30 +120,31 @@ export default function HomePage() {
       rightIcon ={<CommandIcon/>}
       rightIcon2 ={<SIcon/>}
        /> */}
-{/* 
+      {/* 
       <div className="flex justify-center pt-50 space-x-10">
       <Navigate variant="single" icon={<HomeIcon/>} disabled></Navigate>
        <Navigate variant="group" groupItems={groupItems}  disabled/>
       </div> */}
-
+      {/* 
       <div className=" flex flex-col space-y-10 px-50 pt-50">
       <NavigateRail variant="single" icon={<VerifIcon/>}> Verification</NavigateRail>
   <NavigateRail variant="group" dropdownItems={dropdownItems} icon={<DropArrowIcon/>}> </NavigateRail>
-  </div>
+  </div> */}
 
-      {/*       
+      {/*     
+      
+      
      <LargeTab variant="group" labels={labels}   />
 <LargeTab variant="single" >Advisorr</LargeTab> */}
 
-      {/*       
-     <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
+      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
+        <SmallTab variant="group" items={items}></SmallTab>
 
-      <SmallTab variant="group" items={items} status="second">  </SmallTab> 
-      
-      <SmallTab variant="line"  iconLeft={<TabsIcon1/>} iconRight={<TabsIcon2/>}> </SmallTab>
-
-
-</div> */}
+        <SmallTab
+          variant="line"
+          icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}
+        />
+      </div>
 
       {/* 
       <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>

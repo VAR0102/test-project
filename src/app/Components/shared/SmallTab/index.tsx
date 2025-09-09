@@ -2,59 +2,55 @@ import React, { ReactNode } from "react";
 
 type Variant = "line" | "group";
 
-type Status = "default" | "first" | "second";
-
 interface TabItems {
   icon: ReactNode;
   rounded: string;
 }
 
+interface Icons {
+  left: ReactNode;
+  right: ReactNode;
+}
+
 interface SmallTabsProps {
   variant: Variant;
-  status?: Status;
-  children: string;
   className?: string;
   disabled?: boolean;
-  iconLeft?: ReactNode;
-  iconRight?: ReactNode;
   items?: TabItems[];
+  icons?: Icons[];
 }
+
+const styles =
+  "w-[50px] h-[50px] bg-[#FFFFFF03] border border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed disabled:pointer-events-none disabled:border-[#0000001A] disabled:opacity-50 text-black";
 
 const SmallTab = ({
   variant,
-  status = "default",
   items = [],
-  children,
   className = "",
   disabled = false,
-  iconLeft,
-  iconRight,
+  icons = [],
 }: SmallTabsProps) => {
-  const activeIndex = {
-    first: 0,
-    second: 1,
-    default: 2,
-  }[status];
-
   if (variant === "line") {
     return (
-      <div className="flex flex-row gap-4 ">
-        <button
-          className={`w-[50] h-[50px] rounded-l-[12px]   bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed  disabled:pointer-events-none  disable:border-[#0000001A] disabled:opacity-50
-              text-black  ${className}`}
-          disabled={disabled}
-        >
-          <div className="flex justify-center">{iconLeft && iconLeft}</div>
-          {children}
-        </button>
-
-        <button
-          disabled={disabled}
-          className={`w-[50] h-[50px] rounded-r-[12px] bg-[#FFFFFF03] border-1 border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disable:text-[#000000] disabled:cursor-not-allowed  disabled:pointer-events-none  disable:border-[#0000001A]  disabled:opacity-50 text-black  ${className}`}
-        >
-          <div className="flex justify-center">{iconRight && iconRight}</div>
-          {children}
-        </button>
+      <div className="flex flex-row gap-4">
+        {icons.map((item, index) => {
+          return (
+            <div key={index} className="flex gap-2">
+              <button
+                className={`${styles} rounded-l-[12px] ${className}`}
+                disabled={disabled}
+              >
+                <div className="flex justify-center">{item.left}</div>
+              </button>
+              <button
+                className={`${styles} rounded-r-[12px] ${className}`}
+                disabled={disabled}
+              >
+                <div className="flex justify-center">{item.right}</div>
+              </button>
+            </div>
+          );
+        })}
       </div>
     );
   }
@@ -65,11 +61,7 @@ const SmallTab = ({
         {items.map((item, index) => (
           <button
             key={index}
-            className={`px-4 py-2 h-[50px] border border-[#0000001A] ${item.rounded} ${
-              activeIndex === index
-                ? "bg-[#252725] text-[#ffffff]"
-                : "bg-[#FFFFFF03] text-black"
-            }`}
+            className={`px-4 py-2  ${styles} ${item.rounded} `}
           >
             {item.icon}
           </button>
