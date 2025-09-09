@@ -1,35 +1,12 @@
-import AccIcon from "./assets/icons/AccIcon";
-import AddIcon from "./assets/icons/AddIcon";
-import AppIcon from "./assets/icons/AppIcon1";
-import AssetsIcon from "./assets/icons/AssetsIcon";
-import BranchIcon from "./assets/icons/BranchIcon2";
-import BudgetIcon from "./assets/icons/BudgetIcon";
-import ChatIcon from "./assets/icons/ChatIcon";
-import CurrencyIcon from "./assets/icons/CurrecnyIcon";
-import DropArrowIcon from "./assets/icons/DropArrowIcon";
-import FileIcon from "./assets/icons/FileIcon";
-import FileIcon2 from "./assets/icons/FileIcon2";
-import HeatIcon from "./assets/icons/HeatIcon";
-import HomeIcon from "./assets/icons/HomeIcon";
-import LiabilIcon from "./assets/icons/LiabilIcon";
-import MonitorIcon from "./assets/icons/MonitorIcon";
-import NewFileIcon from "./assets/icons/NewFileIcon";
-import ProfilIcon from "./assets/icons/ProfilIcon";
-import SelectionIcon from "./assets/icons/SelectionIcon";
-import SmileIcon from "./assets/icons/SmileIcon";
-import SmoogVerifyIcon from "./assets/icons/SmoogVerifyIcon";
-import TaxToolIcon from "./assets/icons/TaxToolIcon";
-import VerifIcon from "./assets/icons/VerifIcon";
-import Drop from "./Components/shared/Drop";
-import DropDown from "./Components/shared/DropDown";
-import Input from "./Components/shared/Input";
-import Navigate from "./Components/shared/Navigate";
-import NavigateRail from "./Components/shared/NavigateRail";
-import SmallTab from "./Components/shared/SmallTab";
-import Tab from "./Components/shared/Tab";
-import Togle from "./Components/shared/Togle";
+"use client"
+import { useState } from "react";
+import Toggle from "./Components/shared/Toggle";
 
 export default function HomePage() {
+const [isActive, setIsActive] = useState(false);
+
+
+   
   // const groupItems = [
   //     { icon: <HomeIcon />, label: "Household" },
   //     { icon: <SmileIcon />, label: "Individuals" },
@@ -37,7 +14,7 @@ export default function HomePage() {
   //     { icon: <FileIcon />, label: "Resources" },
   //   ];
 
-   const labels = ["All", "Advisor", "Family", "Households", "Members"];
+  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
 
   // const dropdownItems = [
   //   { icon: <FileIcon2 />, label: "All", href: "/all" },
@@ -53,10 +30,10 @@ export default function HomePage() {
   //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
   //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
   // ];
-  const items = [
-    { icon: <AppIcon />, rounded: "rounded-l-[12px] " },
-    { icon: <BranchIcon />, rounded: "rounded-r-[12px]" },
-  ];
+  // const items = [
+  //   { icon: <AppIcon />, rounded: "rounded-l-[12px] " },
+  //   { icon: <BranchIcon />, rounded: "rounded-r-[12px]" },
+  // ];
 
   return (
     <div>
@@ -148,7 +125,9 @@ export default function HomePage() {
           icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}
         />
       </div> */}
-{/* <Togle disabled/> */}
+<div className={`p-4 ${isActive ? "bg-red-500" : "bg-white"}`}>
+      <Toggle onChange={setIsActive} />
+    </div>
 
 {/* <Drop/> */}
       {/* 
@@ -160,10 +139,12 @@ export default function HomePage() {
       <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
  */}
 
-<Tab variant="line" icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}></Tab>
+{/* <Tab variant="line" icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}></Tab>
 <Tab variant="stuck" items={items}></Tab>
 <Tab variant="single">Adviser</Tab>
-<Tab variant="group" labels={labels}></Tab>
+<Tab variant="group" labels={labels}></Tab> */}
+
+
 
       {/*       
       <RadioButton variant="single">  </RadioButton>
