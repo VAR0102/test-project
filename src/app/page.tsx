@@ -1,7 +1,3 @@
-import ProfilIcon from "./assets/icons/ProfilIcon";
-import SelectionIcon from "./assets/icons/SelectionIcon";
-import DropDown from "./Components/shared/DropDown";
-import Input from "./Components/shared/Input";
 
 export default function HomePage() {
   // const groupItems = [
@@ -67,7 +63,7 @@ export default function HomePage() {
 
       {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
 
-      <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
+      {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
         <DropDown
           size="small"
           label="Select Name"
@@ -86,7 +82,7 @@ export default function HomePage() {
           rightIcon={<SelectionIcon />}
           disabled
         />
-      </div>
+      </div> */}
 
       {/*       
 
