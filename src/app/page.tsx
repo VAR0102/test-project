@@ -1,157 +1,37 @@
-"use client"
-import { useState } from "react";
-import Toggle from "./Components/shared/Toggle";
+"use client";
+import Tab from "./Components/shared/Tab";
+import AppIcon from "./assets/icons/AppIcon1";
 
 export default function HomePage() {
-const [isActive, setIsActive] = useState(false);
 
 
-   
-  // const groupItems = [
-  //     { icon: <HomeIcon />, label: "Household" },
-  //     { icon: <SmileIcon />, label: "Individuals" },
-  //     { icon: <AddIcon />, label: "Verify Tax ID" },
-  //     { icon: <FileIcon />, label: "Resources" },
-  //   ];
 
-  //  const labels = ["All", "Advisor", "Family", "Households", "Members"];
+  // const toggle = (state:boolean) => setIsActive(!state)
+  const items = [
+    { id: 1, icon: <AppIcon /> },
+    { id: 2, icon: <AppIcon /> },
+    { id: 3, icon: <AppIcon /> },
+    { id: 4, text:"ape" },
+  ];
 
-  // const dropdownItems = [
-  //   { icon: <FileIcon2 />, label: "All", href: "/all" },
-  //   { icon: <SmoogVerifyIcon />, label: "Verification", href: "/verification" },
-  //   { icon: <CurrencyIcon />, label: "Income", href: "/income" },
-  //   { icon: <AssetsIcon />, label: "Assets", href: "/assets" },
-  //   { icon: <LiabilIcon />, label: "Tax Records", href: "/tax-records" },
-  //   { icon: <AccIcon />, label: "Associated Accounts", href: "/accounts" },
-  //   { icon: <BudgetIcon />, label: "Budgeting", href: "/budgeting" },
-  //   { icon: <MonitorIcon />, label: "Monitor", href: "/monitor" },
-  //   { icon: <TaxToolIcon />, label: "Tax Filing Tools", href: "/tax-tools" },
-  //   { icon: <ChatIcon />, label: "Client Communication Aids", href: "/communication" },
-  //   { icon: <NewFileIcon />, label: "Compliance & Legal Updates", href: "/compliance" },
-  //   { icon: <HeatIcon />, label: "HeatIcon", href: "/heat" },
-  // ];
-  // const items = [
-  //   { icon: <AppIcon />, rounded: "rounded-l-[12px] " },
-  //   { icon: <BranchIcon />, rounded: "rounded-r-[12px]" },
-  // ];
 
   return (
-    <div>
-      {/* <div className="flex flex-col  pt-20 space-y-4 p-6">
-         <Button  variant="primarySmall">Text</Button>
-         <Button rightIcon={<CursorRightIcon/>}  variant="primaryBig">Button Text</Button>
-         <Button leftIcon={<PlusIcon/>} variant="secondaryBig">Add new</Button>
-         <Button  rightIcon={<CursorRightIcon/>} variant="secondaryMedium">Apply Filter</Button>
-         <Button leftIcon="" variant="secondarySmall">Add Filter</Button>
-         <Button variant="tertiary"> <StarsIcon /></Button> 
-         <Button leftIcon={<MediumPlusIcon/>} variant="mediumAdd">Add new client</Button>
-         <Button  rightIcon={<SelectIcon/>}  variant="mediumSelect">Last 30 daysr</Button>
-         <Button  leftIcon={<AdvanceFilter/>} variant="mediumFilter">Advanced Filterr</Button>
-         <Button  leftIcon={<PdfIcon/>}  variant="mediumPdf">Export PDF</Button>
-         <Button  variant="mediumSecondary"> <LeftDirectionIcon/> </Button>
-         <Button   rightIcon={<SelectIcon/>}  variant="mediumTertiarySelect">Group Sources</Button>
-         <Button  variant="mediumTertiaryChose"><XIcon/></Button>
-    </div> */}
-
+    <>
       {/* 
-<MeidumButtons variant="PrimaryAdd" >Add new client</MeidumButtons>
-<MeidumButtons variant="PrimarySelect">Last 30 days</MeidumButtons>
-<MeidumButtons variant="PrimaryFilter"> Advanced Filter</MeidumButtons> 
-<MeidumButtons variant="PrimaryPdf">Export PDF</MeidumButtons>
-<MeidumButtons variant="TertiarySelect">Group Sources</MeidumButtons>
-<MeidumButtons variant="Secondary"><LeftDirectionIcon/></MeidumButtons>
-<MeidumButtons variant="TertiaryChose">  <XIcon />   </MeidumButtons> */}
-      {/* 
-      <div className="flex flex-col space-y-10 px-50 pt-50">
-        <Input variant="fields" />
-        <Input variant="text"  disabled />
-        <Input variant="date"  disabled /> 
+      <div className={`p-4 ${isActive ? "bg-red-500" : "bg-white"}`}>
+        <Toggle onChange={toggle}  isChecked={isActive}/>
       </div> */}
 
-      {/* <Checkbox variant="solid" status="empty">1 </Checkbox>  */}
+      {/* <Tab variant="large" items={items}/> */}
+      <Tab
+        variant="small"
+        items={items}
+        divided       
+      />
 
-      {/* <div className=" flex flex-col space-y-10 pt-50 px-50 justify-center">
-        <DropDown
-          size="small"
-          label="Select Name"
-          options={["Jino", "Kleymo", "Bogo"]}
-          error="Please select an option"
-          rightIcon={<SelectionIcon />}
-          
-        />
 
-        <DropDown
-          size="large"
-          label="Select Name"
-          options={["Nemra", "Gavra", "Rara"]}
-          error="Please select an option"
-          endIcon={<ProfilIcon />}
-          rightIcon={<SelectionIcon />}
-          disabled
-        />
-      </div> */}
 
-      {/*       
-
-      <SearchInput 
-      variant="Search"
-      label="Search...."
-      leftIcon ={<SearchIcon/>}
-      rightIcon ={<CommandIcon/>}
-      rightIcon2 ={<SIcon/>}
-       /> */}
-      {/* 
-      <div className="flex justify-center pt-50 space-x-10">
-      <Navigate variant="single" icon={<HomeIcon/>} disabled></Navigate>
-       <Navigate variant="group" groupItems={groupItems}  disabled/>
-      </div> */}
-      {/* 
-      <div className=" flex flex-col space-y-10 px-50 pt-50">
-      <NavigateRail variant="single" icon={<VerifIcon/>}> Verification</NavigateRail>
-  <NavigateRail variant="group" dropdownItems={dropdownItems} icon={<DropArrowIcon/>}> </NavigateRail>
-  </div> */}
-
-      {/*     
       
-      
-     <LargeTab variant="group" labels={labels}   />
-<LargeTab variant="single" >Advisorr</LargeTab> */}
-{/* 
-      <div className="flex flex-col justify-center px-50 pt-50 space-y-30">
-        <SmallTab variant="group" items={items} disabled></SmallTab>
-
-        <SmallTab
-          variant="line"
-          icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}
-        />
-      </div> */}
-<div className={`p-4 ${isActive ? "bg-red-500" : "bg-white"}`}>
-      <Toggle onChange={setIsActive} />
-    </div>
-
-{/* <Drop/> */}
-      {/* 
-      <Checkbox variant="CheckSolid" status="number"> 1</Checkbox>
-
-      <Checkbox variant="CheckSolid" status="check"></Checkbox>
-
-      <Checkbox variant="CheckSolid" status="empty"> </Checkbox>
-      <Checkbox variant="CheckGroup" status="1st"> </Checkbox>
- */}
-
-{/* <Tab variant="line" icons={[{ left: <AppIcon />, right: <BranchIcon /> }]}></Tab>
-<Tab variant="stuck" items={items}></Tab>
-<Tab variant="single">Adviser</Tab>
-<Tab variant="group" labels={labels}></Tab> */}
-
-
-
-      {/*       
-      <RadioButton variant="single">  </RadioButton>
- <RadioButton variant="group"> Text</RadioButton> */}
-
-      {/* <OtherComponent leftIcon={<UploadIcon/>} variant="drop" ></OtherComponent>
-      <OtherComponent variant="toglle" ></OtherComponent> */}
-    </div>
+    </>
   );
 }

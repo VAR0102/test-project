@@ -1,108 +1,104 @@
-import React, { ReactNode } from "react";
+"use client";
 
-type Variant = "line" | "stuck" | "single" | "group";
+import React, { ReactNode, useState } from "react";
+
+type Variant = "large" | "small";
 
 interface TabItems {
-  icon: ReactNode;
-  rounded: string;
-}
-
-interface Icons {
-  left: ReactNode;
-  right: ReactNode;
+  id: number | string;
+  icon?: ReactNode;
+  text?: string;
 }
 
 interface TabProps {
   variant: Variant;
-  children?: ReactNode;
-  className?: string;
   disabled?: boolean;
   items?: TabItems[];
-  icons?: Icons[];
-  labels?: string[];
+  divided?: boolean;
 }
-
-const styles =
-  "w-[50px] h-[50px] bg-[#FFFFFF03] border border-[#0000001A] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-[#FFFFFF] disabled:cursor-not-allowed disabled:pointer-events-none disabled:border-[#0000001A] disabled:opacity-50 text-black";
 
 const Tab = ({
   variant,
   items = [],
-  className = "",
   disabled = false,
-  children,
-  icons = [],
-  labels = [],
+  divided = false,
 }: TabProps) => {
-    
-  if (variant === "line") {
+  const [activeTab, setActiveTab] = useState<number | string>(items[0].id);
+
+  const handleTabClick = (id: number | string) => {
+    setActiveTab(id);
+  };
+
+  
+  const baseStyles = "border border-[#0000001A] transition-colors duration-200";
+  
+
+  const inactiveStyles = "bg-[#FFFFFF03] text-black hover:bg-gray-100";
+  
+
+  const activeStyles = "bg-black text-white";
+  
+
+  const disabledStyles = "cursor-not-allowed pointer-events-none opacity-50";
+
+  if (variant === "small") {
     return (
-      <div className="flex flex-row gap-4">
-        {icons.map((item, index) => {
+      <div className={`flex flex-row ${divided ? "gap-8" : ""}`}>
+        {items.map((item, index) => {
+          const isActive = activeTab === item.id;
+          
           return (
-            <div key={index} className="flex gap-2">
-              <button
-                className={`${styles} rounded-l-[12px] ${className}`}
-                disabled={disabled}
-              >
-                <div className="flex justify-center">{item.left}</div>
-              </button>
-              <button
-                className={`${styles} rounded-r-[12px] ${className}`}
-                disabled={disabled}
-              >
-                <div className="flex justify-center">{item.right}</div>
-              </button>
-            </div>
+            <button
+              onClick={() => handleTabClick(item.id)}
+              key={item.id}
+              disabled={disabled}
+              className={`
+                ${baseStyles}
+                w-[50px] h-[50px] 
+                flex items-center justify-center 
+                ${disabled ? disabledStyles : "cursor-pointer"}
+                ${isActive ? activeStyles : inactiveStyles}
+                ${
+                  divided
+                    ? index % 2 === 0
+                      ? "rounded-l-[12px]"
+                      : "rounded-r-[12px]"
+                    : index === 0
+                    ? "rounded-l-[12px]"
+                    : index === items.length - 1
+                    ? "rounded-r-[12px]"
+                    : ""
+                }
+              `}
+            >
+              {item.icon} {item.text}
+            </button>
           );
         })}
       </div>
     );
   }
 
-  if (variant === "stuck") {
+  if (variant === "large") {
     return (
-      <div className="flex">
-        {items.map((item, index) => (
-          <button
-            key={index}
-            className={`px-4 py-2  ${styles} ${item.rounded} `}
-          >
-            {item.icon}
-          </button>
-        ))}
-      </div>
-    );
-  }
-
-  if (variant === "single") {
-    return (
-      <button
-        disabled={disabled}
-        className={`w-[100px] h-[50px] rounded-[12px] border border-[#0000001A] text-black 
-          bg-[#FFFFFF03] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-white
-          disabled:text-[#00000080] disabled:border-[#0000001A] disabled:cursor-not-allowed disabled:bg-[#FFFFFF] 
-          ${className}`}
-      >
-        {children}
-      </button>
-    );
-  }
-  if (variant === "group") {
-    return (
-      <div className="flex space-x-2">
-        {labels.map((label, index) => {
+      <div className="flex items-center space-x-2">
+        {items.map((item) => {
+          const isActive = activeTab === item.id;
+          
           return (
             <button
-              key={index}
+              onClick={() => handleTabClick(item.id)}
+              key={item.id}
               disabled={disabled}
               className={`
-                w-[100px] h-[50px] rounded-[12px] border border-[#0000001A] text-black 
-          bg-[#FFFFFF03] hover:bg-[#FFFFFF03] active:bg-[#252725] active:text-white
-          disabled:text-[#00000080] disabled:border-[#0000001A] disabled:cursor-not-allowed disabled:bg-[#FFFFFF] 
-          ${className}`}
+                ${baseStyles}
+                w-[100px] h-[50px] rounded-[12px]
+                flex justify-center items-center
+                ${disabled ? disabledStyles : ""}
+                ${isActive ? activeStyles : inactiveStyles}
+              `}
             >
-              {label}
+              {item.icon} {item.text}
             </button>
           );
         })}
@@ -112,4 +108,5 @@ const Tab = ({
 
   return null;
 };
+
 export default Tab;
