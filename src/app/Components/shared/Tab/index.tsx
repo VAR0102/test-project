@@ -24,21 +24,12 @@ const Tab = ({
   divided = false,
 }: TabProps) => {
   const [activeTab, setActiveTab] = useState<number | string>(items[0].id);
-
   const handleTabClick = (id: number | string) => {
     setActiveTab(id);
   };
-
-  
   const baseStyles = "border border-[#0000001A] transition-colors duration-200";
-  
-
   const inactiveStyles = "bg-[#FFFFFF03] text-black hover:bg-gray-100";
-  
-
   const activeStyles = "bg-black text-white";
-  
-
   const disabledStyles = "cursor-not-allowed pointer-events-none opacity-50";
 
   if (variant === "small") {
