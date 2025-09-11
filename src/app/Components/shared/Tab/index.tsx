@@ -5,7 +5,7 @@ import React, { ReactNode, useState } from "react";
 type Variant = "large" | "small";
 
 interface TabItems {
-  id: number | string;
+  id: number;
   icon?: ReactNode;
   text?: string;
 }
@@ -23,8 +23,8 @@ const Tab = ({
   disabled = false,
   divided = false,
 }: TabProps) => {
-  const [activeTab, setActiveTab] = useState<number | string>(items[0].id);
-  const handleTabClick = (id: number | string) => {
+  const [activeTab, setActiveTab] = useState<number>(items[0].id);
+  const handleTabClick = (id: number ) => {
     setActiveTab(id);
   };
   const baseStyles = "border border-[#0000001A] transition-colors duration-200";
