@@ -17,7 +17,7 @@ export default function HomePage() {
   return (
     <div>
 <div className="flex flex-col space-y-10">
-<Tab variant="large" items={items} disabled/>
+<Tab variant="large" items={items}/>
 <Tab variant="small" items={items}/>
 <Tab variant="small" items={items} divided/>
 </div>

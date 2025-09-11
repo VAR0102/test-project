@@ -22,12 +22,15 @@ const Tab = ({
   items = [],
   disabled = false,
   divided = false,
-
 }: TabProps) => {
+  const [activeTabs, setActiveTabs] = useState<number[]>([]);
 
-  const [activeTab, setActiveTab] = useState<number>(items[0].id);
-  const handleTabClick = (id:number) => {
-    setActiveTab(id);
+  const handleTabClick = (id: number) => {
+    setActiveTabs((prev) =>
+      prev.includes(id) 
+    ? prev.filter((tabId) => tabId !== id) 
+    : [...prev, id]
+    );
   };
   const baseStyles = "border border-[#0000001A] transition-colors duration-200";
   const inactiveStyles = "bg-[#FFFFFF03] text-black hover:bg-gray-100";
@@ -38,8 +41,7 @@ const Tab = ({
     return (
       <div className={`flex flex-row ${divided ? "gap-8" : ""}`}>
         {items.map((item, index) => {
-          const isActive = activeTab === item.id;
-          
+          const isActive = activeTabs.includes(item.id);
           return (
             <button
               onClick={() => handleTabClick(item.id)}
@@ -57,10 +59,10 @@ const Tab = ({
                       ? "rounded-l-[12px]"
                       : "rounded-r-[12px]"
                     : index === 0
-                    ? "rounded-l-[12px]"
-                    : index === items.length - 1
-                    ? "rounded-r-[12px]"
-                    : ""
+                      ? "rounded-l-[12px]"
+                      : index === items.length - 1
+                        ? "rounded-r-[12px]"
+                        : ""
                 }
               `}
             >
@@ -76,8 +78,7 @@ const Tab = ({
     return (
       <div className="flex items-center space-x-2">
         {items.map((item) => {
-          const isActive = activeTab === item.id;
-          
+          const isActive = activeTabs.includes(item.id);
           return (
             <button
               onClick={() => handleTabClick(item.id)}
@@ -87,7 +88,7 @@ const Tab = ({
                 ${baseStyles}
                 w-[100px] h-[50px] rounded-[12px]
                 flex justify-center items-center
-                ${disabled ? disabledStyles : ""}
+                ${disabled ? disabledStyles : "cursor-pointer"}
                 ${isActive ? activeStyles : inactiveStyles}
               `}
             >
