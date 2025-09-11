@@ -1,8 +1,6 @@
 "use client";
 import React, { ReactNode } from "react";
 import Link from "next/link";
-import DropArrowIcon from "@/app/assets/icons/DropArrowIcon";
-import VerifIcon from "@/app/assets/icons/VerifIcon";
 
 type Variant = "single" | "group";
 
@@ -18,12 +16,14 @@ interface NavigateRailProps {
   children?: string;
   disabled?: boolean;
   dropdownItems?: dropdownItem[];
+  icon?: ReactNode;
 }
 
 const variantStyles = {
   single:
-    "w-[110px] h-[25px] text-[#222222] hover:text-[#222222] hover:opacity-80 active:opacity-50 disabled:opacity-20 cursor-pointer",
-  group: "",
+    "w-full h-[25px] text-[#222222] hover:text-[#222222] hover:opacity-80 active:opacity-50 disabled:opacity-20 cursor-pointer",
+  group:
+    "w-full h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer disabled:opacity-20",
 };
 
 const NavigateRail = ({
@@ -32,18 +32,16 @@ const NavigateRail = ({
   children,
   disabled = false,
   dropdownItems = [],
+  icon,
 }: NavigateRailProps) => {
   const combinedClassName = `${variantStyles[variant]} ${className}`;
 
   if (variant === "group") {
     return (
       <div className="flex flex-col">
-        <button
-          disabled={disabled}
-          className="w-[200px] h-[40px] flex items-center justify-between px-3 py-2 text-[#222] cursor-pointer disabled:opacity-20"
-        >
-          <span className="flex items-center gap-2 font-bold  disabled:opacity-20">
-            {<DropArrowIcon />}
+        <button disabled={disabled} className={`${variantStyles}`}>
+          <span className="flex items-center gap-2 font-bold  disabled:opacity-20 cursor-pointer">
+            {icon && icon}
             Resources
           </span>
         </button>
@@ -70,7 +68,7 @@ const NavigateRail = ({
     return (
       <Link href="/verification" className={combinedClassName}>
         <span className="flex items-center flex-row gap-2">
-          <VerifIcon />
+          {icon && icon}
           {children}
         </span>
       </Link>
