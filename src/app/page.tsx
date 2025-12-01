@@ -16,6 +16,7 @@ export default function HomePage() {
 
   return (
     <div>
+      <div className="flex flex-col space-y-10">
       <Tab
         variant="small"
         items={items}
@@ -30,7 +31,7 @@ export default function HomePage() {
         variant="large"
         items={items}       
       />
-
+</div>
     </div>
   );
 }
